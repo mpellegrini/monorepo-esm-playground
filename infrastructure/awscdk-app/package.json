@@ -1,0 +1,25 @@
+{
+  "name": "@infrastructure/awscdk-app",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "exports": "./lib/index.js",
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "lint": "eslint ./src --ext .ts",
+    "clean": "del .turbo lib .coverage cdk.out",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@toolchain/eslint-config": "workspace:*",
+    "@toolchain/ts-config": "workspace:*",
+    "@toolchain/vitest-config": "workspace:*",
+    "aws-cdk": "2.62.2",
+    "aws-cdk-lib": "2.62.2",
+    "constructs": "10.1.235"
+  },
+  "dependencies": {
+    "@serverless/user-auth": "workspace:*"
+  }
+}

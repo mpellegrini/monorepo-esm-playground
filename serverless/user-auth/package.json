@@ -1,0 +1,31 @@
+{
+  "name": "@serverless/user-auth",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/logger/index.js",
+    "./stack": "./lib/stack/index.js"
+  },
+  "scripts": {
+    "bundle": "esbuild ./src/* --entry-names=[dir]/[name]/index --bundle --format=esm --sourcemap --platform=node --target=node18 --outdir=dist",
+    "vite": "vite build",
+    "build": "tsc --project tsconfig.build.json",
+    "lint": "eslint ./src --ext .ts",
+    "clean": "del .turbo lib .coverage"
+  },
+  "devDependencies": {
+    "@toolchain/eslint-config": "workspace:*",
+    "@toolchain/ts-config": "workspace:*",
+    "@toolchain/vitest-config": "workspace:*",
+    "aws-cdk-lib": "2.62.2",
+    "constructs": "10.1.235",
+    "esbuild": "0.17.5",
+    "vite": "4.0.4"
+  },
+  "dependencies": {
+    "@packages/lambda-middleware": "workspace:*",
+    "@packages/observability": "workspace:*"
+  }
+}

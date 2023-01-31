@@ -1,0 +1,6 @@
+packages:
+  - 'toolchain/*'
+  - 'packages/*'
+  - 'serverless/*'
+  - 'apps/*'
+  - 'infrastructure/*'

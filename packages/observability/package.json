@@ -1,0 +1,28 @@
+{
+  "name": "@packages/observability",
+  "version": "0.0.0",
+  "description": "The three pillars of observability - logs metrics and traces.",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./logger": "./lib/logger/index.js",
+    "./metrics": "./lib/metrics/index.js",
+    "./tracer": "./lib/tracer/index.js"
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "lint": "eslint ./src --ext .ts",
+    "clean": "del .turbo lib .coverage"
+  },
+  "devDependencies": {
+    "@toolchain/eslint-config": "workspace:*",
+    "@toolchain/ts-config": "workspace:*",
+    "@toolchain/vitest-config": "workspace:*"
+  },
+  "dependencies": {
+    "@aws-lambda-powertools/logger": "1.5.1",
+    "@aws-lambda-powertools/metrics": "1.5.1",
+    "@aws-lambda-powertools/tracer": "1.5.1"
+  }
+}

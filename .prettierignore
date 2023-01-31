@@ -1,0 +1,71 @@
+#-------------------------------------------------------------------------------------------------------------------
+# Keep this section in sync with .gitignore
+#-------------------------------------------------------------------------------------------------------------------
+
+### Node ###
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+node_modules/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# typescript build artifacts
+lib
+dist
+
+# cdk deployment artifacts
+cdk.out
+cdk.context.json
+
+# turborepo logs and certain task outputs
+.turbo
+
+# Jest test coverage
+.coverage
+
+# svelte
+.svelte-kit/
+package
+
+src/generated
+
+#-------------------------------------------------------------------------------------------------------------------
+# Prettier-specific overrides
+#-------------------------------------------------------------------------------------------------------------------
+
+# Package manager files
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+shrinkwrap.json
+
+# Prettier re-formats code blocks inside Markdown, which affects rendered output
+*.md
+
+# Prettier re-formats comments in JSON, making the documentation hard to read.
+tsconfig-base.json

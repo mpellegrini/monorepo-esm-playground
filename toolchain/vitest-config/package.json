@@ -1,0 +1,20 @@
+{
+  "name": "@toolchain/vitest-config",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": "./lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "TIMING=1 eslint ./src --ext .ts",
+    "clean": "del .turbo lib .coverage"
+  },
+  "devDependencies": {
+    "@toolchain/eslint-config": "workspace:*",
+    "@toolchain/ts-config": "workspace:*",
+    "@vitest/coverage-c8": "0.28.3",
+    "vitest": "0.28.3"
+  }
+}

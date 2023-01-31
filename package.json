@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "preinstall": "npx -y only-allow pnpm",
+    "prepare": "husky install",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "clean": "turbo run clean",
+    "format": "prettier --write '**/*.{ts,tsx,svelte,vue,js,html,md,yaml}'"
+  },
+  "engines": {
+    "npm": ">=8.0.0",
+    "node": ">=16.0.0"
+  },
+  "packageManager": "pnpm@7.26.2",
+  "lint-staged": {
+    "*.{ts,tsx,svelte,js,cjs,mjs,md,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.4.2",
+    "@commitlint/config-conventional": "17.4.2",
+    "del-cli": "5.0.0",
+    "husky": "8.0.3",
+    "lint-staged": "13.1.0",
+    "prettier": "2.8.3",
+    "prettier-plugin-svelte": "2.9.0",
+    "prettier-plugin-tailwindcss": "0.2.2",
+    "turbo": "1.7.0",
+    "typescript": "4.9.4"
+  }
+}
