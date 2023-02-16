@@ -1,17 +1,16 @@
-import type { Environment } from 'aws-cdk-lib'
-import { App } from 'aws-cdk-lib'
-
 import { AuthStack } from '@serverless/user-auth/stack'
 
-const app = new App({ analyticsReporting: false })
+import { HgApp } from './hg-app.js'
 
-const env: Environment = {
-  account: '111059790892',
-  region: 'us-east-1',
-}
-
-new AuthStack(app, 'UserAuth', {
-  env,
+const app = new HgApp({
+  context: {
+    name: 'hg',
+    stage: 'dev',
+    region: 'us-east-1',
+    account: '111059790892',
+  },
 })
+
+new AuthStack(app, 'UserAuth')
 
 app.synth()

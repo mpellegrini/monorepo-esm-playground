@@ -5,11 +5,9 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./lib/logger/index.js",
     "./stack": "./lib/stack/index.js"
   },
   "scripts": {
-    "bundle": "esbuild ./src/* --entry-names=[dir]/[name]/index --bundle --format=esm --sourcemap --platform=node --target=node18 --outdir=dist",
     "vite": "vite build",
     "build": "tsc --project tsconfig.build.json",
     "lint": "eslint ./src --ext .ts",
@@ -19,10 +17,12 @@
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
     "@toolchain/vitest-config": "workspace:*",
-    "aws-cdk-lib": "2.62.2",
-    "constructs": "10.1.235",
-    "esbuild": "0.17.5",
-    "vite": "4.0.4"
+    "@types/aws-lambda": "8.10.110",
+    "aws-cdk-lib": "2.65.0",
+    "change-case": "4.1.2",
+    "constructs": "10.1.252",
+    "esbuild": "0.17.8",
+    "vite": "4.1.1"
   },
   "dependencies": {
     "@packages/lambda-middleware": "workspace:*",
