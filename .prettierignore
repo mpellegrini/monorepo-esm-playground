@@ -51,6 +51,7 @@ cdk.context.json
 # svelte
 .svelte-kit/
 package
+!**/src/lib
 
 src/generated
 
