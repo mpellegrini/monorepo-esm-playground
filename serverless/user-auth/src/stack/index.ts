@@ -86,7 +86,7 @@ export class AuthStack extends HgStack {
       authFlows: {
         userSrp: true,
         adminUserPassword: true,
-        userPassword: false,
+        userPassword: true,
       },
       supportedIdentityProviders: [UserPoolClientIdentityProvider.COGNITO],
     })
