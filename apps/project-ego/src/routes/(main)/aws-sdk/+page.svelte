@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { PUBLIC_AMPLIFY_AUTH_REGION, PUBLIC_AMPLIFY_AUTH_WEB_CLIENT_ID } from '$env/static/public'
+  import { env } from '$env/dynamic/public'
   import {
     CognitoIdentityProvider,
     type SignUpCommandInput,
@@ -9,10 +9,10 @@
   } from '@aws-sdk/client-cognito-identity-provider'
 
   const onSignup = async () => {
-    const provider = new CognitoIdentityProvider({ region: PUBLIC_AMPLIFY_AUTH_REGION })
+    const provider = new CognitoIdentityProvider({ region: env.PUBLIC_AMPLIFY_AUTH_REGION })
 
     const command: SignUpCommandInput = {
-      ClientId: PUBLIC_AMPLIFY_AUTH_WEB_CLIENT_ID,
+      ClientId: env.PUBLIC_AMPLIFY_AUTH_WEB_CLIENT_ID,
       Username: 'mp@mercury.fan',
       Password: 'Password123!',
       UserAttributes: [
@@ -35,10 +35,10 @@
   }
 
   const onConfirm = async () => {
-    const provider = new CognitoIdentityProvider({ region: PUBLIC_AMPLIFY_AUTH_REGION })
+    const provider = new CognitoIdentityProvider({ region: env.PUBLIC_AMPLIFY_AUTH_REGION })
 
     const command: ConfirmSignUpCommandInput = {
-      ClientId: PUBLIC_AMPLIFY_AUTH_WEB_CLIENT_ID,
+      ClientId: env.PUBLIC_AMPLIFY_AUTH_WEB_CLIENT_ID,
       ConfirmationCode: '686536',
       Username: 'mp@mercury.fan',
       ClientMetadata: {
@@ -55,7 +55,7 @@
   }
 
   const onSignin = async () => {
-    const provider = new CognitoIdentityProvider({ region: PUBLIC_AMPLIFY_AUTH_REGION })
+    const provider = new CognitoIdentityProvider({ region: env.PUBLIC_AMPLIFY_AUTH_REGION })
 
     const command: InitiateAuthCommandInput = {
       AuthFlow: AuthFlowType.USER_PASSWORD_AUTH,
@@ -63,7 +63,7 @@
         USERNAME: 'mp@mercury.fan',
         PASSWORD: 'Password123!',
       },
-      ClientId: PUBLIC_AMPLIFY_AUTH_WEB_CLIENT_ID,
+      ClientId: env.PUBLIC_AMPLIFY_AUTH_WEB_CLIENT_ID,
       ClientMetadata: {
         sessionId: 'sessionId',
       },
