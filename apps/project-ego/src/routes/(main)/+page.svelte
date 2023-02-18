@@ -1,1 +1,1 @@
-<a href="accounts/sign-in">Sign-in</a>
+<h1 class="text-5xl">Welcome</h1>

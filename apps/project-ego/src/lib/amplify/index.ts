@@ -1,9 +1,8 @@
 import { Amplify } from '@aws-amplify/core'
 import { env } from '$env/dynamic/public'
 import { browser } from '$app/environment'
-import type { AmplifyConfig } from '@aws-amplify/core/lib-esm/types'
 
-const config: AmplifyConfig = {
+const config = {
   ssr: true,
   Auth: {
     region: env.PUBLIC_AMPLIFY_AUTH_REGION,
@@ -20,19 +19,17 @@ const config: AmplifyConfig = {
       },
     }),
 
-    // (optional) - Manually set the authentication flow type. Default is 'USER_SRP_AUTH'
-    authenticationFlowType: 'USER_SRP_AUTH',
-
     // (optional) - Manually set key value pairs that can be passed to Cognito Lambda Triggers
     clientMetadata: { myCustomKey: 'myCustomValue' },
   },
   API: {},
 }
-export const initializeAmplify = async () => {
+export const initializeAmplify = () => {
   console.log(
     `initializeAmplify on ${
       browser ? 'browser' : 'server'
     } with the following config \n ${JSON.stringify(config)}`,
   )
+  Amplify.Logger.LOG_LEVEL = 'DEBUG'
   Amplify.configure(config)
 }

@@ -7,7 +7,6 @@ import { CfnOutput, Duration, Names, RemovalPolicy, Stack } from 'aws-cdk-lib'
 import {
   AccountRecovery,
   UserPool,
-  UserPoolClient,
   UserPoolClientIdentityProvider,
   UserPoolOperation,
   VerificationEmailStyle,
@@ -51,7 +50,7 @@ export class AuthStack extends HgStack {
 
     const userPool = new UserPool(this, `MyUserPool`, {
       removalPolicy: RemovalPolicy.DESTROY,
-      // TODO: CHECK USERNAME CASE SENISTIVITY
+      signInCaseSensitive: false,
       selfSignUpEnabled: true,
       signInAliases: {
         email: true,
@@ -71,6 +70,8 @@ export class AuthStack extends HgStack {
       accountRecovery: AccountRecovery.EMAIL_ONLY,
     })
 
+    console.log(`id being passed in is ${Names.uniqueId(userPool)}`)
+
     nodejsFunctionProps.layers?.push(
       LayerVersion.fromLayerVersionArn(
         this,
@@ -80,15 +81,15 @@ export class AuthStack extends HgStack {
         }:094274105915:layer:AWSLambdaPowertoolsTypeScript:7`,
       ),
     )
-    // nodejsFunctionProps.layers?.push(
-    //   LayerVersion.fromLayerVersionArn(
-    //     this,
-    //     'powertools-layer',
-    //     `arn:aws:lambda:${
-    //       Stack.of(this).region
-    //     }:094274105915:layer:AWSLambdaPowertoolsTypeScript:7`,
-    //   ),
-    // )
+
+    const userPoolClient = userPool.addClient('UserPoolClient', {
+      authFlows: {
+        userSrp: true,
+        adminUserPassword: true,
+        userPassword: false,
+      },
+      supportedIdentityProviders: [UserPoolClientIdentityProvider.COGNITO],
+    })
 
     userPool.addTrigger(
       UserPoolOperation.PRE_SIGN_UP,
@@ -107,18 +108,6 @@ export class AuthStack extends HgStack {
         description: 'Custom welcome messages or event logging for custom analytics',
       }),
     )
-
-    console.log(`id being passed in is ${Names.uniqueId(userPool)}`)
-
-    const userPoolClient = new UserPoolClient(this, 'UserPoolClient', {
-      userPool,
-      authFlows: {
-        adminUserPassword: true,
-        custom: true,
-        userSrp: true,
-      },
-      supportedIdentityProviders: [UserPoolClientIdentityProvider.COGNITO],
-    })
 
     this.userPoolId = new CfnOutput(this, 'userPoolId', {
       value: userPool.userPoolId,
