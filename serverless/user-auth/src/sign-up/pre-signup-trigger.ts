@@ -1,27 +1,13 @@
-// import type { APIGatewayProxyResult } from '@packages/lambda-middleware'
-// import { wrapApiGatewayProxyHandler } from '@packages/lambda-middleware'
-import { randomUUID } from 'crypto'
+import type { PreSignUpTriggerEvent } from 'aws-lambda'
 
-import type { PreSignUpTriggerHandler } from 'aws-lambda'
-
+import { type AsyncHandler, wrapLambdaHandler } from '@packages/lambda-middleware'
 import { logger } from '@packages/observability/logger'
 
-// export const handler = wrapApiGatewayProxyHandler(async (event, context) => {
-//   const response: APIGatewayProxyResult = {
-//     statusCode: 200,
-//     body: {
-//       message: event,
-//       context: context,
-//       remainingTime: context.getRemainingTimeInMillis(),
-//     },
-//   }
-//   logger.info('Getting ready to return response')
-//   return response
-// })
+type PreSignUpTriggerHandler = AsyncHandler<PreSignUpTriggerEvent>
 
 // eslint-disable-next-line @typescript-eslint/require-await
-export const handler: PreSignUpTriggerHandler = async (event, context) => {
-  logger.addContext(context)
-  logger.info('Getting ready to return response', { event, context, id: randomUUID() })
+export const preSignUpTriggerHandler: PreSignUpTriggerHandler = async (event, context) => {
+  logger.info('Getting ready to return response', { event, context })
   return event
 }
+export const handler = wrapLambdaHandler(preSignUpTriggerHandler)

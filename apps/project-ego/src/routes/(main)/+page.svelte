@@ -4,6 +4,6 @@
 <h1 class="mb-5 text-5xl">Welcome</h1>
 
 <div class="flex justify-around">
-  <a href="/js-lib" class="underline">amazon-cognito-identity-js</a>
-  <a href="/aws-sdk" class="underline">@aws-sdk/client-cognito-identity-provider</a>
+  <a href="/auth/sign-up" class="underline">Sign up</a>
+  <a href="/auth/sign-in" class="underline">Sign in</a>
 </div>

@@ -6,11 +6,13 @@ import type { StackProps } from 'aws-cdk-lib'
 import { CfnOutput, Duration, Names, RemovalPolicy, Stack } from 'aws-cdk-lib'
 import {
   AccountRecovery,
+  ClientAttributes,
+  StringAttribute,
   UserPool,
   UserPoolClientIdentityProvider,
-  UserPoolOperation,
   VerificationEmailStyle,
 } from 'aws-cdk-lib/aws-cognito'
+import { Effect, Policy, PolicyStatement } from 'aws-cdk-lib/aws-iam'
 import { Architecture, LayerVersion, Runtime, Tracing } from 'aws-cdk-lib/aws-lambda'
 import type { NodejsFunctionProps } from 'aws-cdk-lib/aws-lambda-nodejs'
 import { LogLevel, NodejsFunction, OutputFormat } from 'aws-cdk-lib/aws-lambda-nodejs'
@@ -27,6 +29,11 @@ const nodejsFunctionProps: NodejsFunctionProps = {
   awsSdkConnectionReuse: true,
   tracing: Tracing.ACTIVE,
   logRetention: RetentionDays.ONE_DAY,
+  environment: {
+    LOG_LEVEL: 'DEBUG',
+    POWERTOOLS_SERVICE_NAME: 'UserAuth',
+    POWERTOOLS_METRICS_NAMESPACE: 'UserAuth',
+  },
   layers: [],
   bundling: {
     logLevel: LogLevel.INFO,
@@ -42,35 +49,12 @@ const nodejsFunctionProps: NodejsFunctionProps = {
 export class AuthStack extends HgStack {
   public readonly userPoolId: CfnOutput
   public readonly userPoolClientId: CfnOutput
+  public readonly userPoolClientSecret: CfnOutput
 
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props)
 
     const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
-    const userPool = new UserPool(this, `MyUserPool`, {
-      removalPolicy: RemovalPolicy.DESTROY,
-      signInCaseSensitive: false,
-      selfSignUpEnabled: true,
-      signInAliases: {
-        email: true,
-        phone: false,
-        username: false,
-      },
-      userVerification: {
-        emailStyle: VerificationEmailStyle.CODE,
-      },
-      passwordPolicy: {
-        minLength: 8,
-        requireLowercase: true,
-        requireDigits: true,
-        requireUppercase: true,
-        requireSymbols: true,
-      },
-      accountRecovery: AccountRecovery.EMAIL_ONLY,
-    })
-
-    console.log(`id being passed in is ${Names.uniqueId(userPool)}`)
 
     nodejsFunctionProps.layers?.push(
       LayerVersion.fromLayerVersionArn(
@@ -82,38 +66,96 @@ export class AuthStack extends HgStack {
       ),
     )
 
+    const preSignupFnTrigger = new NodejsFunction(this, 'PreSignup', {
+      ...nodejsFunctionProps,
+      entry: path.join(__dirname, '../sign-up/pre-signup-trigger.js'),
+      description: 'Custom validation to accept or deny the sign-up request',
+    })
+
+    const postConfirmationFnTrigger = new NodejsFunction(this, 'PostConfirmation', {
+      ...nodejsFunctionProps,
+      entry: path.join(__dirname, '../sign-up/post-confirmation-trigger.js'),
+      description: 'Custom welcome messages or event logging for custom analytics',
+    })
+
+    const userMigrationFnTrigger = new NodejsFunction(this, 'UserMigration', {
+      ...nodejsFunctionProps,
+      entry: path.join(__dirname, '../sign-up/migrate-user-trigger.js'),
+      description: 'Migrates a user from an existing user directory to user pools',
+    })
+
+    const userPool = new UserPool(this, `MyUserPool`, {
+      removalPolicy: RemovalPolicy.DESTROY,
+      signInCaseSensitive: false,
+      selfSignUpEnabled: true,
+      signInAliases: {
+        email: true,
+        phone: false,
+        username: false,
+      },
+      userVerification: {
+        emailSubject: 'You need to verify your email',
+        emailBody: 'Thanks for signing up Your verification code is {####}',
+        emailStyle: VerificationEmailStyle.CODE,
+      },
+      customAttributes: {
+        internalIdentifier: new StringAttribute({ mutable: true, minLen: 36, maxLen: 36 }),
+      },
+      passwordPolicy: {
+        minLength: 8,
+        requireLowercase: true,
+        requireDigits: true,
+        requireUppercase: true,
+        requireSymbols: true,
+      },
+      accountRecovery: AccountRecovery.EMAIL_ONLY,
+      lambdaTriggers: {
+        preSignUp: preSignupFnTrigger,
+        postConfirmation: postConfirmationFnTrigger,
+        userMigration: userMigrationFnTrigger,
+      },
+    })
+
+    postConfirmationFnTrigger.role?.attachInlinePolicy(
+      new Policy(this, 'allowUpdateUserAttributes', {
+        statements: [
+          new PolicyStatement({
+            effect: Effect.ALLOW,
+            actions: ['cognito-idp:AdminUpdateUserAttributes'],
+            resources: [userPool.userPoolArn],
+          }),
+        ],
+      }),
+    )
+
+    console.log(`id being passed in is ${Names.uniqueId(userPool)}`)
+
     const userPoolClient = userPool.addClient('UserPoolClient', {
+      generateSecret: true,
+      idTokenValidity: Duration.minutes(30),
+      accessTokenValidity: Duration.minutes(30),
+      refreshTokenValidity: Duration.days(5),
+      preventUserExistenceErrors: true,
+      enableTokenRevocation: true,
+      readAttributes: new ClientAttributes().withCustomAttributes(...['internalIdentifier']),
+      writeAttributes: new ClientAttributes().withCustomAttributes(...[]),
       authFlows: {
-        userSrp: true,
-        adminUserPassword: true,
         userPassword: true,
+        userSrp: false,
+        adminUserPassword: false,
+        custom: false,
       },
       supportedIdentityProviders: [UserPoolClientIdentityProvider.COGNITO],
     })
-
-    userPool.addTrigger(
-      UserPoolOperation.PRE_SIGN_UP,
-      new NodejsFunction(this, 'PreSignup', {
-        ...nodejsFunctionProps,
-        entry: path.join(__dirname, '../sign-up/pre-signup-trigger.js'),
-        description: 'Custom validation to accept or deny the sign-up request',
-      }),
-    )
-
-    userPool.addTrigger(
-      UserPoolOperation.POST_CONFIRMATION,
-      new NodejsFunction(this, 'PostConfirmation', {
-        ...nodejsFunctionProps,
-        entry: path.join(__dirname, '../sign-up/post-confirmation-trigger.js'),
-        description: 'Custom welcome messages or event logging for custom analytics',
-      }),
-    )
 
     this.userPoolId = new CfnOutput(this, 'userPoolId', {
       value: userPool.userPoolId,
     })
     this.userPoolClientId = new CfnOutput(this, 'userPoolClientId', {
       value: userPoolClient.userPoolClientId,
+    })
+    this.userPoolClientSecret = new CfnOutput(this, 'userPoolClientSecret', {
+      value: userPoolClient.userPoolClientSecret.unsafeUnwrap(),
     })
   }
 }

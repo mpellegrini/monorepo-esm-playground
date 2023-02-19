@@ -17,8 +17,8 @@
     "@toolchain/vitest-config": "workspace:*",
     "aws-cdk": "2.65.0",
     "aws-cdk-lib": "2.65.0",
-    "constructs": "10.1.254",
-    "esbuild": "0.17.8"
+    "constructs": "10.1.255",
+    "esbuild": "0.17.9"
   },
   "dependencies": {
     "@serverless/user-auth": "workspace:*"
