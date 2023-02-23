@@ -78,11 +78,12 @@ export const initiateRefreshTokenAuth = async (
   refreshToken: string,
   clientMetadata?: Record<string, string>,
 ) => {
+  console.debug('username to refresh ', username)
   const command: InitiateAuthCommandInput = {
     AuthFlow: AuthFlowType.REFRESH_TOKEN_AUTH,
     AuthParameters: {
       REFRESH_TOKEN: refreshToken,
-      SECRET_HASH: hashSecret(username),
+      SECRET_HASH: hashSecret('9e038fea-83ae-42c7-ab48-3c21cfdd2124'),
     },
     ClientId: env.AWS_COGNITO_WEB_CLIENT_ID,
     ClientMetadata: clientMetadata,

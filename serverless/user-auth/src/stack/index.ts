@@ -146,8 +146,8 @@ export class AuthStack extends BaseStack {
 
     const userPoolClient = userPool.addClient('UserPoolClient', {
       generateSecret: true,
-      idTokenValidity: Duration.minutes(30),
-      accessTokenValidity: Duration.minutes(30),
+      idTokenValidity: Duration.minutes(5),
+      accessTokenValidity: Duration.minutes(5),
       refreshTokenValidity: Duration.days(5),
       preventUserExistenceErrors: true,
       enableTokenRevocation: true,

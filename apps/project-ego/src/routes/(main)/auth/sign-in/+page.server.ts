@@ -9,7 +9,6 @@ export const actions: Actions = {
 
     try {
       const result = await initiateUserPasswordAuth(username, password)
-      console.log(JSON.stringify(result))
 
       if (result.AuthenticationResult) {
         const {
@@ -18,7 +17,7 @@ export const actions: Actions = {
           AccessToken: accessToken,
         } = result.AuthenticationResult
 
-        if (idToken && refreshToken && accessToken) {
+        if (idToken && accessToken && refreshToken) {
           cookies.set('idToken', idToken, {
             httpOnly: true,
             path: '/',
@@ -26,6 +25,12 @@ export const actions: Actions = {
           })
 
           cookies.set(`refreshToken`, refreshToken, {
+            httpOnly: true,
+            path: '/',
+            sameSite: 'strict',
+          })
+
+          cookies.set(`lastAuthUser`, '9e038fea-83ae-42c7-ab48-3c21cfdd2124', {
             httpOnly: true,
             path: '/',
             sameSite: 'strict',

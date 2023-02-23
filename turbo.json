@@ -6,7 +6,7 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["./lib/**", "./dist/**", "./.svelte-kit/**"]
+      "outputs": ["./lib/**"]
     },
     "lint": {
       "dependsOn": [],
