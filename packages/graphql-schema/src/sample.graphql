@@ -1,0 +1,27 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  listSites: [Site]
+}
+
+type Mutation {
+  addSite(input: NewSiteInput!): Site
+}
+
+input NewSiteInput {
+  key: String!,
+  name: String!
+}
+
+interface Node {
+  id: ID!
+}
+
+type Site implements Node {
+  id: ID!
+  key: String!
+  name: String!
+}

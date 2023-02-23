@@ -7,8 +7,14 @@ import {
   type InitiateAuthCommandInput,
   type SignUpCommandInput,
 } from '@aws-sdk/client-cognito-identity-provider'
+import { CognitoJwtVerifier } from 'aws-jwt-verify'
+import type { CognitoJwtPayload } from 'aws-jwt-verify/jwt-model'
 
 const provider = new CognitoIdentityProvider({ region: env.AWS_COGNITO_REGION })
+
+const cognitoJwtVerifier = CognitoJwtVerifier.create({
+  userPoolId: env.AWS_COGNITO_USER_POOL ?? '',
+})
 
 export const signUp = async (
   username: string,
@@ -48,7 +54,7 @@ export const confirmSignUp = async (
   return await provider.confirmSignUp(command)
 }
 
-export const initiateAuth = async (
+export const initiateUserPasswordAuth = async (
   username: string,
   password: string,
   clientMetadata?: Record<string, string>,
@@ -65,6 +71,34 @@ export const initiateAuth = async (
   }
 
   return await provider.initiateAuth(command)
+}
+
+export const initiateRefreshTokenAuth = async (
+  username: string,
+  refreshToken: string,
+  clientMetadata?: Record<string, string>,
+) => {
+  const command: InitiateAuthCommandInput = {
+    AuthFlow: AuthFlowType.REFRESH_TOKEN_AUTH,
+    AuthParameters: {
+      REFRESH_TOKEN: refreshToken,
+      SECRET_HASH: hashSecret(username),
+    },
+    ClientId: env.AWS_COGNITO_WEB_CLIENT_ID,
+    ClientMetadata: clientMetadata,
+  }
+
+  return await provider.initiateAuth(command)
+}
+export type JwtPayload = CognitoJwtPayload
+export const verifyCognitoToken = async (
+  token: string,
+  tokenUse: 'id' | 'access' | null,
+): Promise<JwtPayload> => {
+  return await cognitoJwtVerifier.verify(token, {
+    clientId: env.AWS_COGNITO_WEB_CLIENT_ID ?? '',
+    tokenUse,
+  })
 }
 
 const hashSecret = (username: string) => {

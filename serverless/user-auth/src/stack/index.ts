@@ -19,7 +19,7 @@ import { LogLevel, NodejsFunction, OutputFormat } from 'aws-cdk-lib/aws-lambda-n
 import { RetentionDays } from 'aws-cdk-lib/aws-logs'
 import type { Construct } from 'constructs'
 
-import { HgStack } from './hg-stack.js'
+import { BaseStack } from '@packages/aws-cdk-lib'
 
 const nodejsFunctionProps: NodejsFunctionProps = {
   timeout: Duration.seconds(10),
@@ -31,8 +31,8 @@ const nodejsFunctionProps: NodejsFunctionProps = {
   logRetention: RetentionDays.ONE_DAY,
   environment: {
     LOG_LEVEL: 'DEBUG',
-    POWERTOOLS_SERVICE_NAME: 'UserAuth',
-    POWERTOOLS_METRICS_NAMESPACE: 'UserAuth',
+    POWERTOOLS_SERVICE_NAME: 'UserAuth', // Can this be auto-defined via stack name??
+    POWERTOOLS_METRICS_NAMESPACE: 'UserAuth', // Can this be auto-defined via stack name??
   },
   layers: [],
   bundling: {
@@ -46,7 +46,7 @@ const nodejsFunctionProps: NodejsFunctionProps = {
   },
 }
 
-export class AuthStack extends HgStack {
+export class AuthStack extends BaseStack {
   public readonly userPoolId: CfnOutput
   public readonly userPoolClientId: CfnOutput
   public readonly userPoolClientSecret: CfnOutput
@@ -66,22 +66,34 @@ export class AuthStack extends HgStack {
       ),
     )
 
-    const preSignupFnTrigger = new NodejsFunction(this, 'PreSignup', {
+    const preSignupTriggerFn = new NodejsFunction(this, 'PreSignup', {
       ...nodejsFunctionProps,
       entry: path.join(__dirname, '../sign-up/pre-signup-trigger.js'),
       description: 'Custom validation to accept or deny the sign-up request',
     })
 
-    const postConfirmationFnTrigger = new NodejsFunction(this, 'PostConfirmation', {
+    const postConfirmationTriggerFn = new NodejsFunction(this, 'PostConfirmation', {
       ...nodejsFunctionProps,
       entry: path.join(__dirname, '../sign-up/post-confirmation-trigger.js'),
       description: 'Custom welcome messages or event logging for custom analytics',
     })
 
-    const userMigrationFnTrigger = new NodejsFunction(this, 'UserMigration', {
+    const userMigrationTriggerFn = new NodejsFunction(this, 'UserMigration', {
       ...nodejsFunctionProps,
       entry: path.join(__dirname, '../sign-up/migrate-user-trigger.js'),
       description: 'Migrates a user from an existing user directory to user pools',
+    })
+
+    const preAuthenticationTriggerFn = new NodejsFunction(this, 'PreAuthentication', {
+      ...nodejsFunctionProps,
+      entry: path.join(__dirname, '../authentication/pre-authentication-trigger.js'),
+      description: 'Custom validation to accept or deny the sign-in request',
+    })
+
+    const postAuthenticationTriggerFn = new NodejsFunction(this, 'PostAuthentication', {
+      ...nodejsFunctionProps,
+      entry: path.join(__dirname, '../authentication/post-authentication-trigger.js'),
+      description: 'Logs events for custom analytics',
     })
 
     const userPool = new UserPool(this, `MyUserPool`, {
@@ -110,13 +122,15 @@ export class AuthStack extends HgStack {
       },
       accountRecovery: AccountRecovery.EMAIL_ONLY,
       lambdaTriggers: {
-        preSignUp: preSignupFnTrigger,
-        postConfirmation: postConfirmationFnTrigger,
-        userMigration: userMigrationFnTrigger,
+        preSignUp: preSignupTriggerFn,
+        postConfirmation: postConfirmationTriggerFn,
+        userMigration: userMigrationTriggerFn,
+        preAuthentication: preAuthenticationTriggerFn,
+        postAuthentication: postAuthenticationTriggerFn,
       },
     })
 
-    postConfirmationFnTrigger.role?.attachInlinePolicy(
+    postConfirmationTriggerFn.role?.attachInlinePolicy(
       new Policy(this, 'allowUpdateUserAttributes', {
         statements: [
           new PolicyStatement({

@@ -30,7 +30,7 @@ export type AsyncHandler<TEvent = unknown, TResult = TEvent> = (
   context: LambdaContext,
 ) => Promise<TResult>
 
-export const wrapLambdaHandler = <TReqBody = unknown, TResBody = unknown>(
+export const wrapLambdaHandler = <TReqBody = unknown, TResBody = TReqBody>(
   handler: AsyncHandler<TReqBody, TResBody>,
 ): MiddyfiedHandler => {
   return initMiddy().handler(handler)

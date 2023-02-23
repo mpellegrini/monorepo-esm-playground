@@ -1,8 +1,8 @@
+import { BaseApp } from '@packages/aws-cdk-lib'
+import { AppSyncStack } from '@serverless/graphql-api/stack'
 import { AuthStack } from '@serverless/user-auth/stack'
 
-import { HgApp } from './hg-app.js'
-
-const app = new HgApp({
+const app = new BaseApp({
   context: {
     name: 'hg',
     stage: 'dev',
@@ -12,5 +12,7 @@ const app = new HgApp({
 })
 
 new AuthStack(app, 'UserAuth')
+
+new AppSyncStack(app, 'AppSync')
 
 app.synth()

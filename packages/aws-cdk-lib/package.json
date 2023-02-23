@@ -1,30 +1,21 @@
 {
-  "name": "@serverless/user-auth",
+  "name": "@packages/aws-cdk-lib",
   "version": "0.0.0",
   "license": "UNLICENSED",
   "private": true,
   "type": "module",
-  "exports": {
-    "./stack": "./lib/stack/index.js"
-  },
+  "exports": "./lib/index.js",
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
     "lint": "eslint ./src --ext .ts",
     "clean": "del .turbo lib .coverage"
   },
   "devDependencies": {
-    "@packages/aws-cdk-lib": "workspace:*",
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
     "@toolchain/vitest-config": "workspace:*",
-    "@types/aws-lambda": "8.10.110",
     "aws-cdk-lib": "2.66.0",
+    "change-case": "4.1.2",
     "constructs": "10.1.258"
-  },
-  "dependencies": {
-    "@aws-sdk/client-cognito-identity-provider": "3.276.0",
-    "@packages/lambda-middleware": "workspace:*",
-    "@packages/observability": "workspace:*",
-    "@sinclair/typebox": "0.25.23"
   }
 }

@@ -12,15 +12,17 @@
     "cdk": "cdk"
   },
   "devDependencies": {
+    "@packages/aws-cdk-lib": "workspace:*",
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
     "@toolchain/vitest-config": "workspace:*",
-    "aws-cdk": "2.65.0",
-    "aws-cdk-lib": "2.65.0",
-    "constructs": "10.1.255",
-    "esbuild": "0.17.9"
+    "aws-cdk": "2.66.0",
+    "aws-cdk-lib": "2.66.0",
+    "constructs": "10.1.258",
+    "esbuild": "0.17.10"
   },
   "dependencies": {
+    "@serverless/graphql-api": "workspace:*",
     "@serverless/user-auth": "workspace:*"
   }
 }

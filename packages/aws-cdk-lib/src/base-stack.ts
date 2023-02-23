@@ -9,7 +9,7 @@ const nameStack = (scope: Construct, id: string): string => {
   return `${stage}-${name}-${paramCase(id)}`
 }
 
-export class HgStack extends Stack {
+export class BaseStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, nameStack(scope, id), {
       ...props,

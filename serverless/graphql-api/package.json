@@ -1,5 +1,5 @@
 {
-  "name": "@serverless/user-auth",
+  "name": "@serverless/graphql-api",
   "version": "0.0.0",
   "license": "UNLICENSED",
   "private": true,
@@ -22,9 +22,8 @@
     "constructs": "10.1.258"
   },
   "dependencies": {
-    "@aws-sdk/client-cognito-identity-provider": "3.276.0",
+    "@packages/graphql-schema": "workspace:*",
     "@packages/lambda-middleware": "workspace:*",
-    "@packages/observability": "workspace:*",
-    "@sinclair/typebox": "0.25.23"
+    "@packages/observability": "workspace:*"
   }
 }
