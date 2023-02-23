@@ -11,9 +11,9 @@ import { CognitoJwtVerifier } from 'aws-jwt-verify'
 import type { CognitoJwtPayload } from 'aws-jwt-verify/jwt-model'
 
 const provider = new CognitoIdentityProvider({ region: env.AWS_COGNITO_REGION })
-
+console.log(env.AWS_COGNITO_USER_POOL ?? '')
 const cognitoJwtVerifier = CognitoJwtVerifier.create({
-  userPoolId: env.AWS_COGNITO_USER_POOL ?? '',
+  userPoolId: env.AWS_COGNITO_USER_POOL === '' ? 'us-east-1_dH4OjcjfQ' : env.AWS_COGNITO_USER_POOL,
 })
 
 export const signUp = async (

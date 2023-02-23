@@ -1,5 +1,5 @@
 <script lang="ts">
-  import PageData = App.PageData
+  import type { PageData } from './$types'
 
   export let data: PageData
 </script>
