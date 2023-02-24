@@ -1,7 +1,7 @@
 overwrite: true
 schema:
   - ./src/sample.graphql
-  - ./src/appsync.graphql
+  - ./src/_aws-appsync.graphql
 
 generates:
   lib/index.d.ts:
