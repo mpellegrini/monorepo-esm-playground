@@ -25,6 +25,6 @@
     "@aws-sdk/client-cognito-identity-provider": "3.276.0",
     "@packages/lambda-middleware": "workspace:*",
     "@packages/observability": "workspace:*",
-    "@sinclair/typebox": "0.25.23"
+    "@sinclair/typebox": "0.25.24"
   }
 }
