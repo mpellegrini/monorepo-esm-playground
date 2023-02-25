@@ -1,6 +1,6 @@
 overwrite: true
 schema:
-  - ./src/sample.graphql
+  - ./src/schemas/**
   - ./src/_aws-appsync.graphql
 
 generates:

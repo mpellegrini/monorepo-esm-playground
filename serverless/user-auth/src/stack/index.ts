@@ -49,7 +49,7 @@ const nodejsFunctionProps: NodejsFunctionProps = {
 export class AuthStack extends BaseStack {
   public readonly userPoolId: CfnOutput
   public readonly userPoolClientId: CfnOutput
-  public readonly userPoolClientSecret: CfnOutput
+  public readonly userPool: UserPool
 
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props)
@@ -96,7 +96,7 @@ export class AuthStack extends BaseStack {
       description: 'Logs events for custom analytics',
     })
 
-    const userPool = new UserPool(this, `MyUserPool`, {
+    const myUserPool = new UserPool(this, `MyUserPool`, {
       removalPolicy: RemovalPolicy.DESTROY,
       signInCaseSensitive: false,
       selfSignUpEnabled: true,
@@ -136,15 +136,15 @@ export class AuthStack extends BaseStack {
           new PolicyStatement({
             effect: Effect.ALLOW,
             actions: ['cognito-idp:AdminUpdateUserAttributes'],
-            resources: [userPool.userPoolArn],
+            resources: [myUserPool.userPoolArn],
           }),
         ],
       }),
     )
 
-    console.log(`id being passed in is ${Names.uniqueId(userPool)}`)
+    console.log(`id being passed in is ${Names.uniqueId(myUserPool)}`)
 
-    const userPoolClient = userPool.addClient('UserPoolClient', {
+    const userPoolClient = myUserPool.addClient('UserPoolClient', {
       generateSecret: true,
       idTokenValidity: Duration.minutes(5),
       accessTokenValidity: Duration.minutes(5),
@@ -162,13 +162,29 @@ export class AuthStack extends BaseStack {
       supportedIdentityProviders: [UserPoolClientIdentityProvider.COGNITO],
     })
 
+    myUserPool.addClient('DevUserPoolClient', {
+      generateSecret: false,
+      enableTokenRevocation: true,
+      readAttributes: new ClientAttributes().withCustomAttributes(...['internalIdentifier']),
+      writeAttributes: new ClientAttributes().withCustomAttributes(...[]),
+      authFlows: {
+        userPassword: false,
+        userSrp: true,
+        adminUserPassword: false,
+        custom: false,
+      },
+      supportedIdentityProviders: [UserPoolClientIdentityProvider.COGNITO],
+    })
+
+    this.userPool = myUserPool
+
     this.userPoolId = new CfnOutput(this, 'userPoolId', {
-      value: userPool.userPoolId,
+      value: myUserPool.userPoolId,
     })
     this.userPoolClientId = new CfnOutput(this, 'userPoolClientId', {
       value: userPoolClient.userPoolClientId,
     })
-    this.userPoolClientSecret = new CfnOutput(this, 'userPoolClientSecret', {
+    new CfnOutput(this, 'userPoolClientSecret', {
       value: userPoolClient.userPoolClientSecret.unsafeUnwrap(),
     })
   }

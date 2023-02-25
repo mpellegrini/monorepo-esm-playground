@@ -1,11 +1,22 @@
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import { CfnOutput, Duration, Expiration, Stack, type StackProps } from 'aws-cdk-lib'
-import { AuthorizationType, FieldLogLevel, GraphqlApi, SchemaFile } from 'aws-cdk-lib/aws-appsync'
+import { CfnOutput, Duration, Stack, type StackProps } from 'aws-cdk-lib'
+import {
+  AuthorizationType,
+  FieldLogLevel,
+  GraphqlApi,
+  SchemaFile,
+  UserPoolDefaultAction,
+} from 'aws-cdk-lib/aws-appsync'
+import type { IUserPool } from 'aws-cdk-lib/aws-cognito'
 import { Architecture, LayerVersion, Runtime, Tracing } from 'aws-cdk-lib/aws-lambda'
-import type { NodejsFunctionProps } from 'aws-cdk-lib/aws-lambda-nodejs'
-import { LogLevel, NodejsFunction, OutputFormat } from 'aws-cdk-lib/aws-lambda-nodejs'
+import {
+  LogLevel,
+  NodejsFunction,
+  type NodejsFunctionProps,
+  OutputFormat,
+} from 'aws-cdk-lib/aws-lambda-nodejs'
 import { RetentionDays } from 'aws-cdk-lib/aws-logs'
 import type { Construct } from 'constructs'
 
@@ -34,8 +45,12 @@ export const nodejsFunctionProps: NodejsFunctionProps = {
   },
 }
 
+interface AppSyncStackProps extends StackProps {
+  userPool: IUserPool
+}
+
 export class AppSyncStack extends BaseStack {
-  constructor(scope: Construct, id: string, props?: StackProps) {
+  constructor(scope: Construct, id: string, props: AppSyncStackProps) {
     super(scope, id, props)
 
     const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -44,7 +59,7 @@ export class AppSyncStack extends BaseStack {
 
     const api = new GraphqlApi(this, graphqlApiName, {
       schema: SchemaFile.fromAsset(
-        path.join(__dirname, '../../node_modules/@packages/graphql-schema/src/sample.graphql'),
+        path.join(__dirname, '../../node_modules/@packages/graphql/lib/schema.merged.graphql'),
       ),
       name: graphqlApiName,
       xrayEnabled: true,
@@ -55,10 +70,10 @@ export class AppSyncStack extends BaseStack {
       },
       authorizationConfig: {
         defaultAuthorization: {
-          authorizationType: AuthorizationType.API_KEY,
-          apiKeyConfig: {
-            name: 'default-api-key',
-            expires: Expiration.after(Duration.days(7)),
+          authorizationType: AuthorizationType.USER_POOL,
+          userPoolConfig: {
+            userPool: props.userPool,
+            defaultAction: UserPoolDefaultAction.ALLOW,
           },
         },
       },

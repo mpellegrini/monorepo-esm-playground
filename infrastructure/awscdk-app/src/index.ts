@@ -11,8 +11,8 @@ const app = new BaseApp({
   },
 })
 
-new AuthStack(app, 'UserAuth')
+const authStack = new AuthStack(app, 'UserAuth')
 
-new AppSyncStack(app, 'AppSync')
+new AppSyncStack(app, 'AppSync', { userPool: authStack.userPool })
 
 app.synth()

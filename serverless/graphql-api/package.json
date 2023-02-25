@@ -17,12 +17,12 @@
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
     "@toolchain/vitest-config": "workspace:*",
-    "@types/aws-lambda": "8.10.110",
-    "aws-cdk-lib": "2.66.0",
-    "constructs": "10.1.258"
+    "@types/aws-lambda": "8.10.111",
+    "aws-cdk-lib": "2.66.1",
+    "constructs": "10.1.259"
   },
   "dependencies": {
-    "@packages/graphql-schema": "workspace:*",
+    "@packages/graphql": "workspace:*",
     "@packages/lambda-middleware": "workspace:*",
     "@packages/observability": "workspace:*"
   }

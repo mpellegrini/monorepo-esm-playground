@@ -1,0 +1,26 @@
+{
+  "name": "@packages/graphql",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.d.ts"
+  },
+  "files": [
+    "lib/schema.merged.graphql"
+  ],
+  "scripts": {
+    "build": "graphql-codegen && ts-node --esm merge-schemas.cts",
+    "clean": "del .turbo lib .coverage"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "3.2.1",
+    "@graphql-codegen/typescript": "3.0.1",
+    "@graphql-codegen/typescript-operations": "3.0.1",
+    "@graphql-tools/load-files": "6.6.1",
+    "@graphql-tools/merge": "8.3.18",
+    "graphql": "16.6.0",
+    "ts-node": "10.9.1"
+  }
+}

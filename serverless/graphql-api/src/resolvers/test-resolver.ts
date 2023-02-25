@@ -2,7 +2,7 @@ import { randomUUID } from 'crypto'
 
 import type { AppSyncResolverEvent } from 'aws-lambda'
 
-import type { Site } from '@packages/graphql-schema'
+import type { Site } from '@packages/graphql'
 import { type AsyncHandler, wrapLambdaHandler } from '@packages/lambda-middleware'
 
 type AppSyncResolverHandler = AsyncHandler<AppSyncResolverEvent<unknown>, Array<Site>>

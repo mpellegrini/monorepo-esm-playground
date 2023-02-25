@@ -16,10 +16,6 @@ input NewSiteInput {
   name: String!
 }
 
-interface Node {
-  id: ID!
-}
-
 type Site implements Node {
   id: ID!
   key: String!
