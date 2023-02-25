@@ -3,11 +3,11 @@ import { fail, redirect } from '@sveltejs/kit'
 import { confirmSignUp } from '$lib/server/aws-cognito'
 
 export const actions: Actions = {
-  default: async ({ request }) => {
+  default: async ({ request, url }) => {
     const { code } = Object.fromEntries(await request.formData()) as Record<string, string>
-
     try {
-      const result = await confirmSignUp('mp@mercury.fan', code)
+      const username = url.searchParams.get('username') ?? ''
+      const result = await confirmSignUp(username, code)
       console.log(result)
     } catch (err) {
       console.log('Confirm Signup fail. Error: ', err)

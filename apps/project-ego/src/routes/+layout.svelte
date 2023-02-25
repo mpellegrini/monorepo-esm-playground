@@ -1,5 +1,8 @@
-<script lang="ts" context="module">
+<script context="module" lang="ts">
   import '../app.css'
+</script>
+
+<script lang="ts">
 </script>
 
 <div class="container mx-auto">

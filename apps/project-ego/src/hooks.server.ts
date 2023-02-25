@@ -5,8 +5,6 @@ import { JwtExpiredError } from 'aws-jwt-verify/error'
 import { initiateRefreshTokenAuth } from './lib/server/aws-cognito'
 
 const auth: Handle = async ({ event, resolve }) => {
-  console.log('in hooks.server.ts')
-
   const idToken = event.cookies.get('idToken')
   if (idToken) {
     try {

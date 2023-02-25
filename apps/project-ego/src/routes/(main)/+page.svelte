@@ -1,13 +1,11 @@
 <script lang="ts">
-  import type { PageData } from './$types'
-
-  export let data: PageData
+  import { page } from '$app/stores'
 </script>
 
-<h1 class="mb-5 text-5xl">Welcome, {data.userId ?? 'anonymous'}</h1>
+<h1 class="mb-5 text-5xl">Welcome, {$page.data.user ?? 'anonymous'}</h1>
 
 <div class="flex justify-around">
-  {#if data.userId}
+  {#if $page.data.user}
     <a
       href="/auth/sign-out"
       class="underline"
