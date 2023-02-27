@@ -1,10 +1,7 @@
-<script context="module" lang="ts">
+<script lang="ts">
   import '../app.css'
 </script>
 
-<script lang="ts">
-</script>
-
-<div class="container mx-auto">
+<div class="container mx-auto min-h-full border-2 border-dashed border-amber-600">
   <slot />
 </div>

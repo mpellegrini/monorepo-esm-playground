@@ -99,7 +99,7 @@ export class AppSyncStack extends BaseStack {
 
     datasource.createResolver('QueryListSitesResolver', {
       typeName: 'Query',
-      fieldName: 'listSites',
+      fieldName: 'userById',
     })
 
     new CfnOutput(this, 'graphqlUrl', { value: api.graphqlUrl })

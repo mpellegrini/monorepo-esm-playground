@@ -1,12 +1,10 @@
-schema {
-  query: Query
+type Query {
+  userById(id: ID!): User
 }
 
-interface Node {
+type User implements Node & AuditedNode{
   id: ID!
-}
-
-interface AuditedNode {
+  displayName: String!
   createdAt: AWSDateTime
   createdBy: String
   updatedAt: AWSDateTime
