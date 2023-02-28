@@ -5,6 +5,7 @@ type Query {
 type User implements Node & AuditedNode{
   id: ID!
   displayName: String!
+  externalIdentifier: String!
   createdAt: AWSDateTime
   createdBy: String
   updatedAt: AWSDateTime
