@@ -14,6 +14,6 @@ export const actions: Actions = {
       return fail(400, { code })
     }
 
-    throw redirect(307, '/')
+    throw redirect(303, '/')
   },
 }

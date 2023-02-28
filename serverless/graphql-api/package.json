@@ -19,7 +19,7 @@
     "@toolchain/vitest-config": "workspace:*",
     "@types/aws-lambda": "8.10.111",
     "aws-cdk-lib": "2.66.1",
-    "constructs": "10.1.262"
+    "constructs": "10.1.263"
   },
   "dependencies": {
     "@packages/graphql": "workspace:*",

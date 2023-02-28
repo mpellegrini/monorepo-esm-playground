@@ -9,5 +9,5 @@ export const load: PageServerLoad = ({ cookies, locals }) => {
 
   locals.userId = null
 
-  throw redirect(307, '/')
+  throw redirect(303, '/')
 }

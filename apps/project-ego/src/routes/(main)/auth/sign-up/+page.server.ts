@@ -15,6 +15,6 @@ export const actions: Actions = {
       return fail(400, formData)
     }
 
-    throw redirect(307, `${url.pathname}/confirm?username=${encodeURIComponent(username)}`)
+    throw redirect(303, `${url.pathname}/confirm?username=${encodeURIComponent(username)}`)
   },
 }

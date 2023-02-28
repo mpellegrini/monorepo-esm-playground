@@ -11,13 +11,9 @@ export const actions: Actions = {
       const result = await initiateUserPasswordAuth(username, password)
 
       if (result.AuthenticationResult) {
-        const {
-          IdToken: idToken,
-          RefreshToken: refreshToken,
-          AccessToken: accessToken,
-        } = result.AuthenticationResult
+        const { IdToken: idToken, RefreshToken: refreshToken } = result.AuthenticationResult
 
-        if (idToken && accessToken && refreshToken) {
+        if (idToken && refreshToken) {
           cookies.set('idToken', idToken, {
             httpOnly: true,
             path: '/',
@@ -42,6 +38,6 @@ export const actions: Actions = {
       return fail(400, formData)
     }
 
-    throw redirect(307, '/')
+    throw redirect(303, '/')
   },
 }
