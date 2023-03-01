@@ -49,7 +49,7 @@ jobs:
         run: pnpm build --filter=...[${{ env.NX_HEAD }}...${{ env.NX_BASE }}]
 
       - name: Lint Monorepo
-        run: pnpm lint
+        run: pnpm lint --filter=...[${{ env.NX_HEAD }}...${{ env.NX_BASE }}]
 
       - name: Test Monorepo
-        run: pnpm test
+        run: pnpm test--filter=...[${{ env.NX_HEAD }}...${{ env.NX_BASE }}]
