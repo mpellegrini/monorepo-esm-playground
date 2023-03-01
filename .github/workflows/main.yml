@@ -52,4 +52,4 @@ jobs:
         run: pnpm lint --filter=...[${{ env.NX_HEAD }}...${{ env.NX_BASE }}]
 
       - name: Test Monorepo
-        run: pnpm test--filter=...[${{ env.NX_HEAD }}...${{ env.NX_BASE }}]
+        run: pnpm test --filter=...[${{ env.NX_HEAD }}...${{ env.NX_BASE }}]
