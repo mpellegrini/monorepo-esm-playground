@@ -18,7 +18,14 @@ jobs:
         uses: actions/checkout@v3
         with:
           # We need to fetch with a depth of 2 for pull_request, so we can do HEAD^2
-          fetch-depth: 2
+          fetch-depth: 0
+
+      - name: Derive appropriate SHAs for base and head for `turbo xxx --filter` commands
+        uses: nrwl/nx-set-shas@v3
+
+      - run: |
+          echo "BASE: ${{ env.NX_BASE }}"
+          echo "HEAD: ${{ env.NX_HEAD }}"
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
@@ -31,6 +38,13 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --ignore-scripts
+
+      - name: Find Affected Projects
+        id: affected_projects
+        run: |
+          NEEDS_DEPLOY=0
+          (pnpm build --filter=apps/project-ego...[${{ env.NX_HEAD }}...${{ env.NX_BASE }}] --dry=json) || NEEDS_DEPLOY=1
+          echo "::set-output name=deploy_website::${NEEDS_DEPLOY}"
 
       - name: Build Monorepo
         run: pnpm build

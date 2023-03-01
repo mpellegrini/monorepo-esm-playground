@@ -1,5 +1,10 @@
 name: preview
 on:
+  workflow_run:
+    workflows: [ "tests" ]
+    branches: [ main ]
+    types:
+      - completed
   workflow_dispatch:
 
 env:
