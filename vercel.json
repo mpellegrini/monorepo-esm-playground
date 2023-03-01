@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "./app/project-ego/.sveltekit/output",
+      "use": "@vercel/static"
+    }
+  ],
+  "git": {
+    "deploymentEnabled": false
+  },
+  "github": {
+    "silent": true
+  }
+}
