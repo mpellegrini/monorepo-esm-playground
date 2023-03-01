@@ -9,6 +9,9 @@ jobs:
   build_lint_and_test:
     name: Build, lint, and test
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      actions: 'read'
 
     steps:
       - name: Check out code
