@@ -43,7 +43,7 @@ jobs:
         run: |
           NEEDS_DEPLOY=0
           (pnpm build --filter=apps/project-ego...[${{ env.NX_HEAD }}...${{ env.NX_BASE }}] --dry=json) || NEEDS_DEPLOY=1
-          echo "::set-output name=deploy_website::${NEEDS_DEPLOY}"
+          echo "{deploy_website}=${NEEDS_DEPLOY}" >> $GITHUB_OUTPUT
 
       - name: Build Monorepo
         run: pnpm build
