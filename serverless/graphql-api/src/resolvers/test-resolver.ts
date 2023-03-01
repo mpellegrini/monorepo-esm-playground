@@ -1,3 +1,5 @@
+import { randomUUID } from 'crypto'
+
 import type { AppSyncResolverEvent } from 'aws-lambda'
 
 import type { QueryUserByIdArgs, User } from '@packages/graphql'
@@ -10,6 +12,7 @@ export const appSyncResolverHandler: AppSyncResolverHandler = async (event, _con
   return {
     id: event.arguments.id,
     displayName: 'tuffgong88',
+    externalIdentifier: randomUUID(),
   }
 }
 
