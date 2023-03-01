@@ -2,7 +2,7 @@
   import { page } from '$app/stores'
 </script>
 
-<h1 class="mb-5 text-5xl">Welcome , {$page.data.user ?? 'anonymous'}</h1>
+<h1 class="mb-5 text-5xl">Welcome, {$page.data.user ?? 'anonymous'}</h1>
 
 <div class="flex justify-around">
   {#if $page.data.user}
