@@ -46,7 +46,7 @@ jobs:
           echo "{deploy_website}=${NEEDS_DEPLOY}" >> $GITHUB_OUTPUT
 
       - name: Build Monorepo
-        run: pnpm build
+        run: pnpm build --filter=...[${{ env.NX_HEAD }}...${{ env.NX_BASE }}]
 
       - name: Lint Monorepo
         run: pnpm lint
