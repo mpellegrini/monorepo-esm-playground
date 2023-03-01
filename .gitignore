@@ -49,4 +49,5 @@ cdk.context.json
 package
 !**/src/lib
 
+# vercel
 .vercel
