@@ -1,10 +1,5 @@
 name: preview
 on:
-  workflow_run:
-    workflows: [ "tests" ]
-    branches: [ main ]
-    types:
-      - completed
   workflow_dispatch:
 
 env:
@@ -33,7 +28,9 @@ jobs:
       - name: Build Monorepo
         run: pnpm build --filter={./apps/project-ego}...
 
-      - run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Vercel Pull
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
 
-      - run: vercel deploy --prebuilt --cwd ./apps/project-ego --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Vercel Deploy
+        run: vercel deploy --prebuilt --cwd ./apps/project-ego --token=${{ secrets.VERCEL_TOKEN }}
 
