@@ -17,12 +17,11 @@
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
     "@toolchain/vitest-config": "workspace:*",
-    "@types/aws-lambda": "8.10.111",
-    "aws-cdk-lib": "2.67.0",
-    "constructs": "10.1.265"
+    "aws-cdk-lib": "2.68.0",
+    "constructs": "10.1.273"
   },
   "dependencies": {
-    "@aws-sdk/client-cognito-identity-provider": "3.282.0",
+    "@aws-sdk/client-cognito-identity-provider": "3.288.0",
     "@packages/lambda-middleware": "workspace:*",
     "@packages/observability": "workspace:*",
     "@sinclair/typebox": "0.25.24"

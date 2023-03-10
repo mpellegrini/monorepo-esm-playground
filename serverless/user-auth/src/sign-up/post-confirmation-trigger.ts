@@ -1,13 +1,11 @@
 import { randomUUID } from 'crypto'
 
 import { CognitoIdentityProvider } from '@aws-sdk/client-cognito-identity-provider'
-import type { PostConfirmationTriggerEvent } from 'aws-lambda'
 
-import { type AsyncHandler, wrapLambdaHandler } from '@packages/lambda-middleware'
+import { type PostConfirmationTriggerHandler, wrapLambdaHandler } from '@packages/lambda-middleware'
 import { logger } from '@packages/observability/logger'
-const provider = new CognitoIdentityProvider({ region: 'us-east-1' })
 
-type PostConfirmationTriggerHandler = AsyncHandler<PostConfirmationTriggerEvent>
+const provider = new CognitoIdentityProvider({ region: 'us-east-1' })
 
 export const postConfirmationTriggerEvent: PostConfirmationTriggerHandler = async (
   event,

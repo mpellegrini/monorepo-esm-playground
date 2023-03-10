@@ -1,8 +1,4 @@
-import type { PreSignUpTriggerEvent } from 'aws-lambda'
-
-import { type AsyncHandler, wrapLambdaHandler } from '@packages/lambda-middleware'
-
-type PreSignUpTriggerHandler = AsyncHandler<PreSignUpTriggerEvent>
+import { type PreSignUpTriggerHandler, wrapLambdaHandler } from '@packages/lambda-middleware'
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export const preSignUpTriggerHandler: PreSignUpTriggerHandler = async (event, _context) => {

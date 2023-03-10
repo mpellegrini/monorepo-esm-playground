@@ -1,5 +1,5 @@
 {
-  "name": "@infrastructure/awscdk-app",
+  "name": "@infrastructure/shared-infrastructure",
   "version": "0.0.0",
   "license": "UNLICENSED",
   "private": true,
@@ -8,21 +8,13 @@
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
     "lint": "eslint ./src --ext .ts",
-    "clean": "del .turbo lib .coverage cdk.out",
-    "cdk": "cdk"
+    "clean": "del .turbo lib .coverage cdk.out"
   },
   "devDependencies": {
-    "@packages/aws-cdk-lib": "workspace:*",
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
     "@toolchain/vitest-config": "workspace:*",
-    "aws-cdk": "2.68.0",
     "aws-cdk-lib": "2.68.0",
-    "constructs": "10.1.273",
-    "esbuild": "0.17.11"
-  },
-  "dependencies": {
-    "@serverless/graphql-api": "workspace:*",
-    "@serverless/user-auth": "workspace:*"
+    "constructs": "10.1.273"
   }
 }

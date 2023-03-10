@@ -55,5 +55,4 @@ const logger: Handle = async ({ event, resolve }) => {
   return response
 }
 
-// export const handle: Handle = sequence(logger, auth.handleHooks());
 export const handle: Handle = sequence(logger, auth)

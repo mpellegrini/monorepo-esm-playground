@@ -3,7 +3,14 @@ import * as process from 'process'
 import type { MiddyfiedHandler } from '@middy/core'
 import middy from '@middy/core'
 
-import type { Context as LambdaContext } from 'aws-lambda'
+import type {
+  Context as LambdaContext,
+  PostAuthenticationTriggerEvent,
+  PostConfirmationTriggerEvent,
+  PreAuthenticationTriggerEvent,
+  PreSignUpTriggerEvent,
+  UserMigrationTriggerEvent,
+} from 'aws-lambda'
 
 import { LogLevel, injectLambdaContext, logger } from '@packages/observability/logger'
 import { logMetrics, metrics } from '@packages/observability/metrics'
@@ -35,3 +42,12 @@ export const wrapLambdaHandler = <TReqBody = unknown, TResBody = TReqBody>(
 ): MiddyfiedHandler => {
   return initMiddy().handler(handler)
 }
+
+// Cognito Authentication Handlers
+export type PreAuthenticationTriggerHandler = AsyncHandler<PreAuthenticationTriggerEvent>
+export type PostAuthenticationTriggerHandler = AsyncHandler<PostAuthenticationTriggerEvent>
+
+// Cognito Sign-up Handlers
+export type PreSignUpTriggerHandler = AsyncHandler<PreSignUpTriggerEvent>
+export type PostConfirmationTriggerHandler = AsyncHandler<PostConfirmationTriggerEvent>
+export type UserMigrationTriggerHandler = AsyncHandler<UserMigrationTriggerEvent>

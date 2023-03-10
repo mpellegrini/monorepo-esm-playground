@@ -1,5 +1,4 @@
 import path from 'path'
-
 import { fileURLToPath } from 'url'
 
 import type { StackProps } from 'aws-cdk-lib'
