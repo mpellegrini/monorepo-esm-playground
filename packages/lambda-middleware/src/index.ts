@@ -4,6 +4,7 @@ import type { MiddyfiedHandler } from '@middy/core'
 import middy from '@middy/core'
 
 import type {
+  AppSyncResolverEvent,
   Context as LambdaContext,
   PostAuthenticationTriggerEvent,
   PostConfirmationTriggerEvent,
@@ -32,6 +33,8 @@ const initMiddy = (): MiddyfiedHandler => {
     .use(captureLambdaHandler(tracer))
 }
 
+export { Context } from 'aws-lambda'
+
 export type AsyncHandler<TEvent = unknown, TResult = TEvent> = (
   event: TEvent,
   context: LambdaContext,
@@ -51,3 +54,9 @@ export type PostAuthenticationTriggerHandler = AsyncHandler<PostAuthenticationTr
 export type PreSignUpTriggerHandler = AsyncHandler<PreSignUpTriggerEvent>
 export type PostConfirmationTriggerHandler = AsyncHandler<PostConfirmationTriggerEvent>
 export type UserMigrationTriggerHandler = AsyncHandler<UserMigrationTriggerEvent>
+
+export type AppSyncResolverHandler<
+  TArgs = unknown,
+  TResult = unknown,
+  TSource = Record<string, unknown> | null,
+> = AsyncHandler<AppSyncResolverEvent<TArgs, TSource>, TResult>
