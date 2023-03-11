@@ -4,10 +4,10 @@ import type { QueryUserByIdArgs, User } from '@packages/graphql'
 import { wrapLambdaHandler } from '@packages/lambda-middleware'
 import type { AppSyncResolverHandler } from '@packages/lambda-middleware'
 
-// eslint-disable-next-line @typescript-eslint/require-await
 export const appSyncResolverHandler: AppSyncResolverHandler<QueryUserByIdArgs, User> = async (
   event,
   _context,
+  // eslint-disable-next-line @typescript-eslint/require-await
 ) => {
   return {
     id: event.arguments.id,
