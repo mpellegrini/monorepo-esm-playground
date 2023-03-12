@@ -1,14 +1,20 @@
 import { createHmac } from 'crypto'
-import { env } from '$env/dynamic/private'
+
 import {
   AuthFlowType,
   CognitoIdentityProvider,
   type ConfirmSignUpCommandInput,
+  type ConfirmSignUpCommandOutput,
   type InitiateAuthCommandInput,
+  type InitiateAuthCommandOutput,
   type SignUpCommandInput,
+  type SignUpCommandOutput,
 } from '@aws-sdk/client-cognito-identity-provider'
 import { CognitoJwtVerifier } from 'aws-jwt-verify'
 import type { CognitoJwtPayload } from 'aws-jwt-verify/jwt-model'
+
+// eslint-disable-next-line import/no-unresolved
+import { env } from '$env/dynamic/private'
 
 const provider = new CognitoIdentityProvider({ region: env.AWS_COGNITO_REGION })
 
@@ -16,11 +22,17 @@ const cognitoJwtVerifier = CognitoJwtVerifier.create({
   userPoolId: env.AWS_COGNITO_USER_POOL,
 })
 
+const hashSecret = (username: string): string => {
+  return createHmac('SHA256', env.AWS_COGNITO_WEB_CLIENT_SECRET)
+    .update(username + env.AWS_COGNITO_WEB_CLIENT_ID)
+    .digest('base64')
+}
+
 export const signUp = async (
   username: string,
   password: string,
   clientMetadata?: Record<string, string>,
-) => {
+): Promise<SignUpCommandOutput> => {
   const command: SignUpCommandInput = {
     ClientId: env.AWS_COGNITO_WEB_CLIENT_ID,
     Username: username,
@@ -42,7 +54,7 @@ export const confirmSignUp = async (
   username: string,
   confirmationCode: string,
   clientMetadata?: Record<string, string>,
-) => {
+): Promise<ConfirmSignUpCommandOutput> => {
   const command: ConfirmSignUpCommandInput = {
     ClientId: env.AWS_COGNITO_WEB_CLIENT_ID,
     ConfirmationCode: confirmationCode,
@@ -58,7 +70,7 @@ export const initiateUserPasswordAuth = async (
   username: string,
   password: string,
   clientMetadata?: Record<string, string>,
-) => {
+): Promise<InitiateAuthCommandOutput> => {
   const command: InitiateAuthCommandInput = {
     AuthFlow: AuthFlowType.USER_PASSWORD_AUTH,
     AuthParameters: {
@@ -77,7 +89,7 @@ export const initiateRefreshTokenAuth = async (
   username: string,
   refreshToken: string,
   clientMetadata?: Record<string, string>,
-) => {
+): Promise<InitiateAuthCommandOutput> => {
   console.debug('username to refresh ', username)
   const command: InitiateAuthCommandInput = {
     AuthFlow: AuthFlowType.REFRESH_TOKEN_AUTH,
@@ -100,10 +112,4 @@ export const verifyCognitoToken = async (
     clientId: env.AWS_COGNITO_WEB_CLIENT_ID,
     tokenUse,
   })
-}
-
-const hashSecret = (username: string) => {
-  return createHmac('SHA256', env.AWS_COGNITO_WEB_CLIENT_SECRET)
-    .update(username + env.AWS_COGNITO_WEB_CLIENT_ID)
-    .digest('base64')
 }

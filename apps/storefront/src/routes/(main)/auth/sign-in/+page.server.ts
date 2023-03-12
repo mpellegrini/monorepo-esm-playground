@@ -1,5 +1,6 @@
 import type { Actions } from '@sveltejs/kit'
 import { fail, redirect } from '@sveltejs/kit'
+
 import { initiateUserPasswordAuth } from '$lib/server/aws-cognito'
 
 export const actions: Actions = {

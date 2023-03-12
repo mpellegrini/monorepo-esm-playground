@@ -69,7 +69,7 @@ const config = {
     },
     {
       files: ['**/*.test.ts'],
-      plugins: ['vitest'],
+      plugins: ['eslint-plugin-vitest'],
       env: {
         'vitest-globals/env': true,
       },

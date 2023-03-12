@@ -1,8 +1,10 @@
+import { randomUUID } from 'crypto'
+
 import type { Actions } from '@sveltejs/kit'
 import { error, redirect } from '@sveltejs/kit'
 import Stripe from 'stripe'
+
 import { STRIPE_CHECKOUT_KEY } from '$env/static/private'
-import { randomUUID } from 'crypto'
 
 const stripe = new Stripe(STRIPE_CHECKOUT_KEY, {
   apiVersion: '2022-11-15',
@@ -10,7 +12,7 @@ const stripe = new Stripe(STRIPE_CHECKOUT_KEY, {
 
 export const actions: Actions = {
   default: async (event) => {
-    const formData = Object.fromEntries(await event.request.formData()) as Record<string, string>
+    // const formData = Object.fromEntries(await event.request.formData()) as Record<string, string>
     const result = await stripe.checkout.sessions.create({
       metadata: {
         hello: 'hello',

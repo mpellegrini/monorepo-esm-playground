@@ -35,6 +35,7 @@ importers:
       '@sveltejs/adapter-vercel': 2.3.1
       '@sveltejs/kit': 1.11.0
       '@tailwindcss/forms': 0.5.3
+      '@toolchain/eslint-config': workspace:*
       autoprefixer: 10.4.14
       aws-jwt-verify: 3.4.0
       postcss: 8.4.21
@@ -54,6 +55,7 @@ importers:
       '@sveltejs/adapter-vercel': 2.3.1_@sveltejs+kit@1.11.0
       '@sveltejs/kit': 1.11.0_svelte@3.56.0+vite@4.1.4
       '@tailwindcss/forms': 0.5.3_tailwindcss@3.2.7
+      '@toolchain/eslint-config': link:../../toolchain/eslint-config
       autoprefixer: 10.4.14_postcss@8.4.21
       postcss: 8.4.21
       svelte: 3.56.0
@@ -243,7 +245,6 @@ importers:
       eslint-import-resolver-typescript: 3.5.3
       eslint-plugin-eslint-comments: 3.2.0
       eslint-plugin-import: 2.27.5
-      eslint-plugin-neverthrow: 1.1.4
       eslint-plugin-promise: 6.1.1
       eslint-plugin-svelte3: 4.0.0
       eslint-plugin-vitest: 0.0.54
@@ -256,7 +257,6 @@ importers:
       eslint-import-resolver-typescript: 3.5.3_eakrjjutlgqjxe5ydhtnd4qdmy
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.36.0
       eslint-plugin-import: 2.27.5_vnzfed4kywz2eznd2trmvnqdq4
-      eslint-plugin-neverthrow: 1.1.4_4rfaf6mlw2mmutqjcopwvbftpu
       eslint-plugin-promise: 6.1.1_eslint@8.36.0
       eslint-plugin-svelte3: 4.0.0_pdvxdpbnzjwxjm7tkjwumh3vqi
       eslint-plugin-vitest: 0.0.54_vgl77cfdswitgr47lm5swmv43m
@@ -4463,20 +4463,6 @@ packages:
       '@types/ms': 0.7.31
     dev: true
 
-  /@types/eslint-utils/3.0.2:
-    resolution: {integrity: sha512-NgxYBOYjO5+s+vAKTWgWyBMITF3sxNOmfbRtr3yXA4CZpmfwnOBbqxYO4TGITdhOOf4fSEETEmGpqcoGxdZzjg==}
-    dependencies:
-      '@types/eslint': 8.21.1
-      '@types/estree': 1.0.0
-    dev: true
-
-  /@types/eslint/8.21.1:
-    resolution: {integrity: sha512-rc9K8ZpVjNcLs8Fp0dkozd5Pt2Apk1glO4Vgz8ix1u6yFByxfqo5Yavpy65o+93TAe24jr7v+eSBtFLvOQtCRQ==}
-    dependencies:
-      '@types/estree': 1.0.0
-      '@types/json-schema': 7.0.11
-    dev: true
-
   /@types/estree-jsx/0.0.1:
     resolution: {integrity: sha512-gcLAYiMfQklDCPjQegGn0TBAn9it05ISEsEhlKQUddIk7o2XDokOcTN7HBO8tznM0D9dGezvHEfRZBfZf6me0A==}
     dependencies:
@@ -7232,22 +7218,6 @@ packages:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
-    dev: true
-
-  /eslint-plugin-neverthrow/1.1.4_4rfaf6mlw2mmutqjcopwvbftpu:
-    resolution: {integrity: sha512-+8zsE5rDqsDfKYAOq0Fr2jbuxHXTmntIWWJqJA3ms1GAKcVCjl0ycetzOu/hTxot9ctr+WYQpCBgB3F2HATR7A==}
-    engines: {node: '>=14.17'}
-    peerDependencies:
-      '@typescript-eslint/parser': '>=4.20.0'
-      eslint: '>=5.16.0'
-    dependencies:
-      '@types/eslint-utils': 3.0.2
-      '@typescript-eslint/parser': 5.54.1_vgl77cfdswitgr47lm5swmv43m
-      eslint: 8.36.0
-      eslint-utils: 3.0.0_eslint@8.36.0
-      tsutils: 3.21.0_typescript@4.9.5
-    transitivePeerDependencies:
-      - typescript
     dev: true
 
   /eslint-plugin-promise/6.1.1_eslint@8.36.0:

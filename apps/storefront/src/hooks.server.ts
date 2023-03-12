@@ -1,14 +1,15 @@
 import type { Handle } from '@sveltejs/kit'
-import { verifyCognitoToken } from '$lib/server/aws-cognito'
+
 import { sequence } from '@sveltejs/kit/hooks'
 import { JwtExpiredError } from 'aws-jwt-verify/error'
-import { initiateRefreshTokenAuth } from './lib/server/aws-cognito'
+
+import { initiateRefreshTokenAuth, verifyCognitoToken } from '$lib/server/aws-cognito'
 
 const auth: Handle = async ({ event, resolve }) => {
-  const idToken = event.cookies.get('idToken')
-  if (idToken) {
+  const idTokenCookie = event.cookies.get('idToken')
+  if (idTokenCookie) {
     try {
-      const payload = await verifyCognitoToken(idToken, 'id')
+      const payload = await verifyCognitoToken(idTokenCookie, 'id')
       event.locals.userId = payload.sub
     } catch (err) {
       if (err instanceof JwtExpiredError) {
@@ -16,7 +17,7 @@ const auth: Handle = async ({ event, resolve }) => {
         const refreshToken = event.cookies.get('refreshToken')
         if (lastAuthUser && refreshToken) {
           try {
-            const result = await initiateRefreshTokenAuth(lastAuthUser!, refreshToken!)
+            const result = await initiateRefreshTokenAuth(lastAuthUser, refreshToken)
             if (result.AuthenticationResult) {
               const { IdToken: idToken, AccessToken: accessToken } = result.AuthenticationResult
 
@@ -30,8 +31,8 @@ const auth: Handle = async ({ event, resolve }) => {
 
               event.locals.userId = lastAuthUser
             }
-          } catch (err) {
-            console.error(JSON.stringify(err))
+          } catch (err2) {
+            console.error(JSON.stringify(err2))
           }
         }
       }
