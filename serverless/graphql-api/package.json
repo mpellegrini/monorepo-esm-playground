@@ -18,7 +18,7 @@
     "@toolchain/ts-config": "workspace:*",
     "@toolchain/vitest-config": "workspace:*",
     "aws-cdk-lib": "2.68.0",
-    "constructs": "10.1.274"
+    "constructs": "10.1.275"
   },
   "dependencies": {
     "@packages/graphql": "workspace:*",

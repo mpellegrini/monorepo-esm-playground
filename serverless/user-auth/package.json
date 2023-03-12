@@ -19,7 +19,7 @@
     "@toolchain/vitest-config": "workspace:*",
     "@types/node": "18.15.0",
     "aws-cdk-lib": "2.68.0",
-    "constructs": "10.1.274"
+    "constructs": "10.1.275"
   },
   "dependencies": {
     "@aws-sdk/client-cognito-identity-provider": "3.289.0",

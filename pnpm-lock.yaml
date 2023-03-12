@@ -75,7 +75,7 @@ importers:
       '@toolchain/vitest-config': workspace:*
       aws-cdk: 2.68.0
       aws-cdk-lib: 2.68.0
-      constructs: 10.1.274
+      constructs: 10.1.275
       esbuild: 0.17.11
     dependencies:
       '@serverless/graphql-api': link:../../serverless/graphql-api
@@ -86,8 +86,8 @@ importers:
       '@toolchain/ts-config': link:../../toolchain/ts-config
       '@toolchain/vitest-config': link:../../toolchain/vitest-config
       aws-cdk: 2.68.0
-      aws-cdk-lib: 2.68.0_constructs@10.1.274
-      constructs: 10.1.274
+      aws-cdk-lib: 2.68.0_constructs@10.1.275
+      constructs: 10.1.275
       esbuild: 0.17.11
 
   infrastructure/shared-infrastructure:
@@ -96,13 +96,13 @@ importers:
       '@toolchain/ts-config': workspace:*
       '@toolchain/vitest-config': workspace:*
       aws-cdk-lib: 2.68.0
-      constructs: 10.1.274
+      constructs: 10.1.275
     devDependencies:
       '@toolchain/eslint-config': link:../../toolchain/eslint-config
       '@toolchain/ts-config': link:../../toolchain/ts-config
       '@toolchain/vitest-config': link:../../toolchain/vitest-config
-      aws-cdk-lib: 2.68.0_constructs@10.1.274
-      constructs: 10.1.274
+      aws-cdk-lib: 2.68.0_constructs@10.1.275
+      constructs: 10.1.275
 
   packages/aws-cdk-lib:
     specifiers:
@@ -111,14 +111,14 @@ importers:
       '@toolchain/vitest-config': workspace:*
       aws-cdk-lib: 2.68.0
       change-case: 4.1.2
-      constructs: 10.1.274
+      constructs: 10.1.275
     devDependencies:
       '@toolchain/eslint-config': link:../../toolchain/eslint-config
       '@toolchain/ts-config': link:../../toolchain/ts-config
       '@toolchain/vitest-config': link:../../toolchain/vitest-config
-      aws-cdk-lib: 2.68.0_constructs@10.1.274
+      aws-cdk-lib: 2.68.0_constructs@10.1.275
       change-case: 4.1.2
-      constructs: 10.1.274
+      constructs: 10.1.275
 
   packages/graphql:
     specifiers:
@@ -196,7 +196,7 @@ importers:
       '@toolchain/ts-config': workspace:*
       '@toolchain/vitest-config': workspace:*
       aws-cdk-lib: 2.68.0
-      constructs: 10.1.274
+      constructs: 10.1.275
     dependencies:
       '@packages/graphql': link:../../packages/graphql
       '@packages/lambda-middleware': link:../../packages/lambda-middleware
@@ -206,8 +206,8 @@ importers:
       '@toolchain/eslint-config': link:../../toolchain/eslint-config
       '@toolchain/ts-config': link:../../toolchain/ts-config
       '@toolchain/vitest-config': link:../../toolchain/vitest-config
-      aws-cdk-lib: 2.68.0_constructs@10.1.274
-      constructs: 10.1.274
+      aws-cdk-lib: 2.68.0_constructs@10.1.275
+      constructs: 10.1.275
 
   serverless/user-auth:
     specifiers:
@@ -221,7 +221,7 @@ importers:
       '@toolchain/vitest-config': workspace:*
       '@types/node': 18.15.0
       aws-cdk-lib: 2.68.0
-      constructs: 10.1.274
+      constructs: 10.1.275
     dependencies:
       '@aws-sdk/client-cognito-identity-provider': 3.289.0
       '@packages/lambda-middleware': link:../../packages/lambda-middleware
@@ -233,8 +233,8 @@ importers:
       '@toolchain/ts-config': link:../../toolchain/ts-config
       '@toolchain/vitest-config': link:../../toolchain/vitest-config
       '@types/node': 18.15.0
-      aws-cdk-lib: 2.68.0_constructs@10.1.274
-      constructs: 10.1.274
+      aws-cdk-lib: 2.68.0_constructs@10.1.275
+      constructs: 10.1.275
 
   toolchain/eslint-config:
     specifiers:
@@ -5454,7 +5454,7 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /aws-cdk-lib/2.68.0_constructs@10.1.274:
+  /aws-cdk-lib/2.68.0_constructs@10.1.275:
     resolution: {integrity: sha512-roN3xwzv/GleGG3CaJrf+thdzr9WBzJU4LotumEOs+0cGfeXSta8Pm/cGAeY4kplr5r10QWUovH0fv/bi6Vrbw==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
@@ -5465,7 +5465,7 @@ packages:
       '@aws-cdk/asset-node-proxy-agent-v5': 2.0.80
       '@balena/dockerignore': 1.0.2
       case: 1.6.3
-      constructs: 10.1.274
+      constructs: 10.1.275
       fs-extra: 9.1.0
       ignore: 5.2.4
       jsonschema: 1.4.1
@@ -6144,8 +6144,8 @@ packages:
       upper-case: 2.0.2
     dev: true
 
-  /constructs/10.1.274:
-    resolution: {integrity: sha512-ptJ8wwhf957pRj8rJ3dRx28arZRhxZEqBSA2Q3MbAcO9y6kEdntgSmtoosoaK16qxWSoXqOXLDMAg6/r3auMww==}
+  /constructs/10.1.275:
+    resolution: {integrity: sha512-t/wi7j+tYCsTWh5NbyctGrM+LMzt+CsPSSqLW4sI2JjgjoMlvN5xZFsfijgXJikeyUhgXbQKWlYJBzZQUFl4DA==}
     engines: {node: '>= 14.17.0'}
     dev: true
 
