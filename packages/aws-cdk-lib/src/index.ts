@@ -1,7 +1,7 @@
 import { pascalCase } from 'change-case'
 import type { Construct } from 'constructs'
 
-export { BaseApp } from './base-app.js2'
+export { BaseApp } from './base-app.js'
 export { BaseStack } from './base-stack.js'
 
 export const nameIt = (scope: Construct, id: string): string => {
