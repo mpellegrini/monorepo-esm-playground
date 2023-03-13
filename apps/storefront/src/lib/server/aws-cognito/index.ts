@@ -13,7 +13,6 @@ import {
 import { CognitoJwtVerifier } from 'aws-jwt-verify'
 import type { CognitoJwtPayload } from 'aws-jwt-verify/jwt-model'
 
-// eslint-disable-next-line import/no-unresolved
 import { env } from '$env/dynamic/private'
 
 const provider = new CognitoIdentityProvider({ region: env.AWS_COGNITO_REGION })

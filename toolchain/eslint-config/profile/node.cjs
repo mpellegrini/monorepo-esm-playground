@@ -28,20 +28,6 @@ const config = {
 
   overrides: [
     {
-      files: ['*.svelte'],
-      processor: 'svelte3/svelte3',
-      parserOptions: {
-        extraFileExtensions: ['.svelte'],
-      },
-      env: {
-        browser: true,
-      },
-      plugins: ['svelte3'],
-      settings: {
-        'svelte3/typescript': true,
-      },
-    },
-    {
       files: ['**/*.test.ts'],
       env: {
         'vitest-globals/env': true,
