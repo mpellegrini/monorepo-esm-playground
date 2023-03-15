@@ -18,7 +18,7 @@
     "@toolchain/vitest-config": "workspace:*",
     "aws-cdk": "2.69.0",
     "aws-cdk-lib": "2.69.0",
-    "constructs": "10.1.277",
+    "constructs": "10.1.278",
     "esbuild": "0.17.11"
   },
   "dependencies": {

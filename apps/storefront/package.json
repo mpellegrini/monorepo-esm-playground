@@ -10,8 +10,8 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "lint": "eslint .",
-    "clean": "del .turbo .svelte-kit .vercel"
+		"lint": "eslint .",
+		"clean": "del .turbo .svelte-kit .vercel"
 	},
 	"devDependencies": {
 		"@fontsource/inter": "4.5.15",
@@ -21,7 +21,7 @@
 		"@toolchain/eslint-config": "workspace:*",
 		"autoprefixer": "10.4.14",
 		"postcss": "8.4.21",
-		"svelte": "3.56.0",
+		"svelte": "3.57.0",
 		"svelte-check": "3.1.4",
 		"tailwindcss": "3.2.7",
 		"tslib": "2.5.0",
@@ -29,7 +29,7 @@
 		"vite-plugin-mkcert": "1.13.3"
 	},
 	"dependencies": {
-		"@aws-sdk/client-cognito-identity-provider": "3.290.0",
+		"@aws-sdk/client-cognito-identity-provider": "3.292.0",
 		"aws-jwt-verify": "3.4.0",
 		"stripe": "11.14.0"
 	}

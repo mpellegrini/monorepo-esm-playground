@@ -1,7 +1,7 @@
 import type { LayoutServerLoad } from './$types'
 
-export const load: LayoutServerLoad = ({ locals }) => {
+export const load = (({ locals }) => {
   return {
     user: locals.userId,
-  }
-}
+  } as { user: string }
+}) satisfies LayoutServerLoad

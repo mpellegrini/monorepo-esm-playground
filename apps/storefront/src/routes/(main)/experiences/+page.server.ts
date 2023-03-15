@@ -10,7 +10,7 @@ const stripe = new Stripe(STRIPE_CHECKOUT_KEY, {
   apiVersion: '2022-11-15',
 })
 
-export const actions: Actions = {
+export const actions = {
   default: async (event) => {
     // const formData = Object.fromEntries(await event.request.formData()) as Record<string, string>
     const result = await stripe.checkout.sessions.create({
@@ -57,4 +57,4 @@ export const actions: Actions = {
       throw error(500, 'no url')
     }
   },
-}
+} satisfies Actions

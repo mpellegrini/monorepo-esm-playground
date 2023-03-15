@@ -5,6 +5,7 @@ module.exports = {
   },
   rules: {
     'import/no-unresolved': 'off', // This rule doesn't play well with SvelteKit
+    '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
   },
   extends: ['@toolchain/eslint-config/profile/node-esm'],
 }

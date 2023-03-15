@@ -3,7 +3,7 @@ import { fail, redirect } from '@sveltejs/kit'
 
 import { initiateUserPasswordAuth } from '$lib/server/aws-cognito'
 
-export const actions: Actions = {
+export const actions = {
   default: async ({ request, cookies }) => {
     const formData = Object.fromEntries(await request.formData()) as Record<string, string>
     const { username, password } = formData
@@ -41,4 +41,4 @@ export const actions: Actions = {
 
     throw redirect(303, '/')
   },
-}
+} satisfies Actions

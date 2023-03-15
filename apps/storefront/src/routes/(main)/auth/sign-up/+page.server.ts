@@ -3,7 +3,7 @@ import { fail, redirect } from '@sveltejs/kit'
 
 import { signUp } from '$lib/server/aws-cognito'
 
-export const actions: Actions = {
+export const actions = {
   default: async ({ request, url }) => {
     const formData = Object.fromEntries(await request.formData()) as Record<string, string>
     const { username, password } = formData
@@ -18,4 +18,4 @@ export const actions: Actions = {
 
     throw redirect(303, `${url.pathname}/confirm?username=${encodeURIComponent(username)}`)
   },
-}
+} satisfies Actions

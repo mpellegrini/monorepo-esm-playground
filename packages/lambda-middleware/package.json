@@ -15,7 +15,7 @@
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
     "@toolchain/vitest-config": "workspace:*",
-    "@types/aws-lambda": "8.10.112"
+    "@types/aws-lambda": "8.10.113"
   },
   "dependencies": {
     "@middy/core": "4.2.7",
