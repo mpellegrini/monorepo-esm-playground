@@ -31,6 +31,6 @@
 	"dependencies": {
 		"@aws-sdk/client-cognito-identity-provider": "3.293.0",
 		"aws-jwt-verify": "3.4.0",
-		"stripe": "11.14.0"
+		"stripe": "11.15.0"
 	}
 }
