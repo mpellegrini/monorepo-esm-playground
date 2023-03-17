@@ -1,6 +1,6 @@
 import { Logger } from '@aws-lambda-powertools/logger'
 
-export const LogLevel = {
+export const LOG_LEVEL = {
   DEBUG: 'DEBUG',
   INFO: 'INFO',
   WARN: 'WARN',

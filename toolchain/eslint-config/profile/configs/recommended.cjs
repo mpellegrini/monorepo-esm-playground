@@ -111,7 +111,6 @@ module.exports = {
     'no-obj-calls': 'error',
     'no-octal': 'error',
     'no-param-reassign': ['error', { props: false }],
-    'no-process-env': 'error',
     'no-process-exit': 'error',
     'no-prototype-builtins': 'error',
     'no-redeclare': ['error', { builtinGlobals: true }],

@@ -8,7 +8,7 @@ export const load = (({ cookies, locals }) => {
   cookies.delete('accessToken', { path: '/' })
   cookies.delete('lastAuthUser', { path: '/' })
 
-  locals.userId = null
+  locals.user = null
 
   throw redirect(303, '/')
 }) satisfies PageServerLoad

@@ -4,8 +4,9 @@ const config = {
     require.resolve('./configs/recommended.cjs'),
     require.resolve('./configs/+node.cjs'),
     require.resolve('./configs/+typescript.cjs'),
+    require.resolve('./configs/+package-json.cjs'),
   ],
-  ignorePatterns: ['lib', 'vitest-config.ts'],
+  ignorePatterns: ['lib', 'vitest.config.ts', '.vercel', '.svelte-kit'],
 }
 
 module.exports = config

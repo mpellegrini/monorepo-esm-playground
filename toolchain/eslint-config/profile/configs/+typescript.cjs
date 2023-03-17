@@ -4,7 +4,7 @@ const base = require('./ts/base-config.cjs')
 module.exports = {
   overrides: [
     {
-      files: ['*.ts', '*.mts', '*.cts'],
+      files: ['*.ts', '*.mts', '*.cts', '.tsx'],
       parser: require.resolve('@typescript-eslint/parser'),
       ...base,
     },

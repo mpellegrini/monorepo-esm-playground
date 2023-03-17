@@ -12,6 +12,7 @@ module.exports = {
       },
       rules: {
         'node/exports-style': ['error', 'module.exports'],
+        'node/no-process-env': 'error',
         'node/file-extension-in-import': [
           'error',
           'always',

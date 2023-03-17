@@ -10,7 +10,9 @@ const auth: Handle = async ({ event, resolve }) => {
   if (idTokenCookie) {
     try {
       const payload = await verifyCognitoToken(idTokenCookie, 'id')
-      event.locals.userId = payload.sub
+      event.locals.user = {
+        id: payload.sub,
+      }
     } catch (err) {
       if (err instanceof JwtExpiredError) {
         const lastAuthUser = event.cookies.get('lastAuthUser')
@@ -29,7 +31,9 @@ const auth: Handle = async ({ event, resolve }) => {
                 })
               }
 
-              event.locals.userId = lastAuthUser
+              event.locals.user = {
+                id: lastAuthUser,
+              }
             }
           } catch (err2) {
             console.error(JSON.stringify(err2))

@@ -13,7 +13,7 @@ import type {
   UserMigrationTriggerEvent,
 } from 'aws-lambda'
 
-import { LogLevel, injectLambdaContext, logger } from '@packages/observability/logger'
+import { LOG_LEVEL, injectLambdaContext, logger } from '@packages/observability/logger'
 import { logMetrics, metrics } from '@packages/observability/metrics'
 import { captureLambdaHandler, tracer } from '@packages/observability/tracer'
 
@@ -21,7 +21,7 @@ const initMiddy = (): MiddyfiedHandler => {
   return middy()
     .use(
       injectLambdaContext(logger, {
-        logEvent: process.env['LOG_LEVEL'] === LogLevel.DEBUG,
+        logEvent: process.env['LOG_LEVEL'] === LOG_LEVEL.DEBUG,
         clearState: true,
       }),
     )

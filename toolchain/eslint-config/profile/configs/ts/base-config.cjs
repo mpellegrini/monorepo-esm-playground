@@ -1,16 +1,14 @@
 'use strict'
 
-const { getProject } = require('./index.cjs')
-
 module.exports = {
   extends: ['plugin:@typescript-eslint/recommended'],
   parserOptions: {
     sourceType: 'module',
-    project: getProject(),
+    project: ['./tsconfig.json'],
     extraFileExtensions: ['.vue', '.svelte'],
   },
   rules: {
-    // 'dot-notation': 'off',
+    'dot-notation': 'off',
     '@typescript-eslint/array-type': 'error',
     '@typescript-eslint/explicit-module-boundary-types': [
       'error',
@@ -55,7 +53,6 @@ module.exports = {
       },
     ],
     '@typescript-eslint/consistent-type-assertions': 'error',
-    '@typescript-eslint/explicit-member-accessibility': 'error',
     '@typescript-eslint/no-array-constructor': 'error',
     '@typescript-eslint/no-empty-interface': 'error',
     '@typescript-eslint/no-extraneous-class': 'error',
