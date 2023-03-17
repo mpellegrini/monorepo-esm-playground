@@ -1,0 +1,19 @@
+{
+  "name": "@packages/example-pkg",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "exports": "./lib/index.js",
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "lint": "TIMING=1 eslint ./src --ext .ts",
+    "test": "vitest --run",
+    "clean": "del .turbo lib .coverage"
+  },
+  "devDependencies": {
+    "@toolchain/eslint-config": "workspace:*",
+    "@toolchain/ts-config": "workspace:*",
+    "@toolchain/vitest-config": "workspace:*"
+  }
+}
