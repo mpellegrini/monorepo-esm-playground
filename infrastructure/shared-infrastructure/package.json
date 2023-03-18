@@ -15,6 +15,6 @@
     "@toolchain/ts-config": "workspace:*",
     "@toolchain/vitest-config": "workspace:*",
     "aws-cdk-lib": "2.69.0",
-    "constructs": "10.1.280"
+    "constructs": "10.1.281"
   }
 }

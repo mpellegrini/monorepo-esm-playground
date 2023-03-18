@@ -11,7 +11,7 @@
     "lib/schema.merged.graphql"
   ],
   "scripts": {
-    "build": "graphql-codegen && ts-node --esm merge-schemas.cts",
+    "build": "graphql-codegen-esm && ts-node --esm merge-schemas.cts",
     "clean": "del .turbo lib .coverage"
   },
   "devDependencies": {

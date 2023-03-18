@@ -3,6 +3,8 @@ schema:
   - ./src/schemas/**
   - ./src/_aws-appsync.graphql
 
+emitLegacyCommonJSImports: false
+
 generates:
   lib/index.d.ts:
     plugins:
