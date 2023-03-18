@@ -5,8 +5,10 @@ const config = {
     require.resolve('./configs/+node.cjs'),
     require.resolve('./configs/+typescript.cjs'),
     require.resolve('./configs/+package-json.cjs'),
+    require.resolve('./configs/+json.cjs'),
+    require.resolve('./configs/+yaml.cjs'),
+    'prettier',
   ],
   ignorePatterns: ['lib', 'vitest.config.ts', '.vercel', '.svelte-kit'],
 }
-
 module.exports = config

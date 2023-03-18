@@ -33,7 +33,7 @@ const initMiddy = (): MiddyfiedHandler => {
     .use(captureLambdaHandler(tracer))
 }
 
-export { Context } from 'aws-lambda'
+export type { Context } from 'aws-lambda'
 
 export type AsyncHandler<TEvent = unknown, TResult = TEvent> = (
   event: TEvent,
