@@ -1,2 +1,2 @@
-export { add } from './add'
-export { subtract } from './subtract'
+export { add } from './add.js'
+export { subtract } from './subtract.js'

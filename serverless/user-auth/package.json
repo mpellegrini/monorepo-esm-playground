@@ -19,12 +19,14 @@
     "@toolchain/vitest-config": "workspace:*",
     "@types/node": "18.15.3",
     "aws-cdk-lib": "2.69.0",
-    "constructs": "10.1.281"
+    "constructs": "10.1.282"
   },
   "dependencies": {
     "@aws-sdk/client-cognito-identity-provider": "3.294.0",
     "@packages/lambda-middleware": "workspace:*",
     "@packages/observability": "workspace:*",
-    "@sinclair/typebox": "0.25.24"
+    "@sinclair/typebox": "0.25.24",
+    "reflect-metadata": "0.1.13",
+    "tsyringe": "4.7.0"
   }
 }

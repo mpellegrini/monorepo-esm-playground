@@ -3,7 +3,7 @@ import { join } from 'path'
 import { mergeTypeDefs } from '@graphql-tools/merge'
 import { print } from 'graphql'
 import {existsSync, writeFileSync, mkdirSync} from 'fs'
-console.log('**** ', __dirname)
+
 const loadedFiles = loadFilesSync(join(__dirname, 'src/schemas'), {
   extensions: ['graphql'],
 })

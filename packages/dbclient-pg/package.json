@@ -1,20 +1,22 @@
 {
-  "name": "@infrastructure/shared-infrastructure",
+  "name": "@packages/dbclient-pg",
   "version": "0.0.0",
+  "description": "",
   "license": "UNLICENSED",
   "private": true,
   "type": "module",
-  "exports": "./lib/index.js",
+  "exports": "./index.js",
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
-    "lint": "eslint ./src --ext .ts",
-    "clean": "del .turbo lib .coverage cdk.out"
+    "lint": "eslint .",
+    "clean": "del .turbo lib .coverage"
   },
   "devDependencies": {
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
-    "@toolchain/vitest-config": "workspace:*",
-    "aws-cdk-lib": "2.69.0",
-    "constructs": "10.1.282"
+    "@toolchain/vitest-config": "workspace:*"
+  },
+  "dependencies": {
+    "pg-promise": "11.4.3"
   }
 }
