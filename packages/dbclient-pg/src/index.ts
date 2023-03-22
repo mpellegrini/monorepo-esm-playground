@@ -3,13 +3,16 @@ import type { IConnectionParameters } from 'pg-promise/typescript/pg-subset.js'
 
 const initOptions: IInitOptions = {
   capSQL: true,
-  connect: ({ client, useCount }) => {
+  connect: ({ client, useCount }): void => {
     const { database } = client.connectionParameters
-    console.debug(`Connected to database: ${database ?? 'unknown'}. useCount = ${useCount}`)
+    console.info(`Connected to database: ${database ?? 'unknown'}. useCount = ${useCount}`)
   },
-  disconnect: ({ client }) => {
+  disconnect: ({ client }): void => {
     const { database } = client.connectionParameters
-    console.log(`Disconnecting from database ${database ?? 'unknown'}`)
+    console.info(`Disconnecting from database ${database ?? 'unknown'}`)
+  },
+  error: (err: unknown): void => {
+    console.error(err)
   },
 }
 
