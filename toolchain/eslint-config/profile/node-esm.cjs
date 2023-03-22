@@ -104,6 +104,7 @@ const config = {
       },
     },
   ],
+  ignorePatterns: ['vitest.config.ts', 'lib'],
 }
 
 module.exports = config
