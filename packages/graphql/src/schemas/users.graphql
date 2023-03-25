@@ -1,11 +1,18 @@
 type Query {
   userById(id: ID!): User
+  allUsers: User
+}
+
+enum Role {
+  USER
+  ADMIN
 }
 
 type User implements Node & AuditedNode{
   id: ID!
   displayName: String!
   externalIdentifier: String!
+  role: Role!
   createdAt: AWSDateTime
   createdBy: String
   updatedAt: AWSDateTime

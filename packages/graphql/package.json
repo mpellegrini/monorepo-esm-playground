@@ -5,21 +5,26 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./lib/index.d.ts"
+    ".": "./lib/index.js"
   },
   "files": [
     "lib/schema.merged.graphql"
   ],
   "scripts": {
-    "build": "graphql-codegen-esm && ts-node --esm merge-schemas.cts",
+    "build": "pnpm codegen && tsc --project tsconfig.build.json && pnpm merge-schema",
+    "codegen": "graphql-codegen-esm --config codegen.cjs",
+    "merge-schema": "ts-node --esm merge-schemas.ts",
     "clean": "del .turbo lib .coverage"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "3.2.2",
+    "@graphql-codegen/typed-document-node": "3.0.2",
     "@graphql-codegen/typescript": "3.0.2",
     "@graphql-codegen/typescript-operations": "3.0.2",
     "@graphql-tools/load-files": "6.6.1",
     "@graphql-tools/merge": "8.4.0",
+    "@graphql-typed-document-node/core": "3.2.0",
+    "@toolchain/ts-config": "workspace:*",
     "graphql": "16.6.0",
     "ts-node": "10.9.1"
   }

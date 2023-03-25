@@ -1,0 +1,12 @@
+query OpUser($user: ID!) {
+  userById(id: $user) {
+    ...UserFields
+  }
+}
+
+fragment UserFields on User {
+  __typename,
+  id,
+  displayName,
+  externalIdentifier,
+}

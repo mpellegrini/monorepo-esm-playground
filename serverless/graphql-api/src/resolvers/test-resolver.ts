@@ -1,6 +1,6 @@
 import { randomUUID } from 'crypto'
 
-import type { QueryUserByIdArgs, User } from '@packages/graphql'
+import { type QueryUserByIdArgs, type User } from '@packages/graphql'
 import { wrapLambdaHandler } from '@packages/lambda-middleware'
 import type { AppSyncResolverHandler } from '@packages/lambda-middleware'
 
@@ -9,11 +9,14 @@ export const appSyncResolverHandler: AppSyncResolverHandler<QueryUserByIdArgs, U
   _context,
   // eslint-disable-next-line @typescript-eslint/require-await
 ) => {
-  return {
+  const result: User = {
     id: event.arguments.id,
     displayName: 'tuffgong88',
     externalIdentifier: randomUUID(),
+    role: 'ADMIN',
   }
+
+  return result
 }
 
 export const handler = wrapLambdaHandler(appSyncResolverHandler)

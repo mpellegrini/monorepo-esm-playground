@@ -1,5 +1,5 @@
 import pgPromise, { type IDatabase, type IInitOptions } from 'pg-promise'
-import type { IConnectionParameters } from 'pg-promise/typescript/pg-subset.js'
+import { type IConnectionParameters } from 'pg-promise/typescript/pg-subset.js'
 
 const initOptions: IInitOptions = {
   capSQL: true,
