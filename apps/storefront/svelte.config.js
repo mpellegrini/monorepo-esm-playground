@@ -11,6 +11,7 @@ const config = {
     adapter: adapter({ runtime: 'nodejs18.x' }),
     alias: {
       $components: './src/components',
+      $houdini: './$houdini',
     },
   },
 

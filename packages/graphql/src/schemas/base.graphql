@@ -1,6 +1,18 @@
 schema {
   query: Query
 }
+#
+# https://docs.aws.amazon.com/appsync/latest/devguide/scalars.html
+#
+scalar AWSDateTime
+scalar AWSDate
+scalar AWSTime
+scalar AWSTimestamp
+scalar AWSEmail
+scalar AWSJSON
+scalar AWSURL
+scalar AWSPhone
+scalar AWSIPAddress
 
 interface Node {
   id: ID!

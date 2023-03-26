@@ -1,0 +1,9 @@
+projects:
+  default:
+    schema:
+      - ./node_modules/@packages/graphql/lib/schema.merged.graphql
+      - ./$houdini/graphql/schema.graphql
+    documents:
+      - '**/*.gql'
+      - '**/*.svelte'
+      - ./$houdini/graphql/documents.gql
