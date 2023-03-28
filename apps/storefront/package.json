@@ -32,7 +32,7 @@
 		"vite-plugin-mkcert": "1.13.4"
 	},
 	"dependencies": {
-		"@aws-sdk/client-cognito-identity-provider": "3.299.0",
+		"@aws-sdk/client-cognito-identity-provider": "3.300.0",
 		"@packages/graphql": "workspace:*",
 		"aws-jwt-verify": "4.0.0",
 		"stripe": "11.16.0"

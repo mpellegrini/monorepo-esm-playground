@@ -1,6 +1,6 @@
 import { randomUUID } from 'crypto'
 
-import { type QueryUserByIdArgs, type User } from '@packages/graphql'
+import type { QueryUserByIdArgs, User } from '@packages/graphql'
 import { wrapLambdaHandler } from '@packages/lambda-middleware'
 import type { AppSyncResolverHandler } from '@packages/lambda-middleware'
 

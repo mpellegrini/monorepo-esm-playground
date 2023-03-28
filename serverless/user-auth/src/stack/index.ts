@@ -183,8 +183,5 @@ export class AuthStack extends BaseStack {
     this.userPoolClientId = new CfnOutput(this, 'userPoolClientId', {
       value: userPoolClient.userPoolClientId,
     })
-    new CfnOutput(this, 'userPoolClientSecret', {
-      value: userPoolClient.userPoolClientSecret.unsafeUnwrap(),
-    })
   }
 }
