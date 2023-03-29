@@ -17,8 +17,8 @@
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
     "@toolchain/vitest-config": "workspace:*",
-    "aws-cdk-lib": "2.70.0",
-    "constructs": "10.1.293"
+    "aws-cdk-lib": "2.72.0",
+    "constructs": "10.1.295"
   },
   "dependencies": {
     "@packages/graphql": "workspace:*",
