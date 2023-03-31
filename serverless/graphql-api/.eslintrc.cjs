@@ -3,5 +3,5 @@ module.exports = {
   parserOptions: {
     tsconfigRootDir: __dirname,
   },
-  extends: ['@toolchain/eslint-config/profile/node-esm'],
+  extends: ['@toolchain/eslint-config'],
 }

@@ -7,14 +7,13 @@
   "exports": "./lib/index.js",
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
-    "lint": "TIMING=1 eslint ./src --ext .ts",
+    "lint": "TIMING=1 eslint .",
     "test": "vitest --run --passWithNoTests",
     "clean": "del .turbo lib .coverage"
   },
   "devDependencies": {
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
-    "@toolchain/vitest-config": "workspace:*",
     "@types/aws-lambda": "8.10.114"
   },
   "dependencies": {

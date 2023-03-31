@@ -12,13 +12,12 @@
   },
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
-    "lint": "eslint ./src --ext .ts",
+    "lint": "TIMING=1 eslint .",
     "clean": "del .turbo lib .coverage"
   },
   "devDependencies": {
     "@toolchain/eslint-config": "workspace:*",
-    "@toolchain/ts-config": "workspace:*",
-    "@toolchain/vitest-config": "workspace:*"
+    "@toolchain/ts-config": "workspace:*"
   },
   "dependencies": {
     "@aws-lambda-powertools/logger": "1.7.0",

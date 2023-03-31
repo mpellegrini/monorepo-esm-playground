@@ -4,7 +4,6 @@
     "noEmit": false,
   },
   "exclude": [
-    "vitest.config.ts",
     "./node_modules",
     "./src/**/*.test.ts"
   ]

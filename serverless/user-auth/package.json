@@ -9,14 +9,13 @@
   },
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
-    "lint": "eslint ./src --ext .ts",
+    "lint": "TIMING=1 eslint .",
     "clean": "del .turbo lib .coverage"
   },
   "devDependencies": {
     "@packages/aws-cdk-lib": "workspace:*",
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
-    "@toolchain/vitest-config": "workspace:*",
     "@types/node": "18.15.11",
     "aws-cdk-lib": "2.72.0",
     "constructs": "10.1.295"

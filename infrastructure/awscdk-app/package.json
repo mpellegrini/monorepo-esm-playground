@@ -6,8 +6,8 @@
   "type": "module",
   "exports": "./lib/index.js",
   "scripts": {
-    "build": "tsc --project tsconfig.build.json",
-    "lint": "eslint ./src --ext .ts",
+    "build": "del lib && tsc --project tsconfig.build.json",
+    "lint": "TIMING=1 eslint .",
     "clean": "del .turbo lib .coverage cdk.out",
     "cdk": "cdk"
   },
@@ -15,7 +15,6 @@
     "@packages/aws-cdk-lib": "workspace:*",
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
-    "@toolchain/vitest-config": "workspace:*",
     "aws-cdk": "2.72.0",
     "aws-cdk-lib": "2.72.0",
     "constructs": "10.1.295",

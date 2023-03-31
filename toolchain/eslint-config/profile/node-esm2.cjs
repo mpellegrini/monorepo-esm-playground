@@ -9,6 +9,6 @@ const config = {
     require.resolve('./configs/+yaml.cjs'),
     'prettier',
   ],
-  ignorePatterns: ['lib', 'vitest.config.ts', '.vercel', '.svelte-kit'],
+  ignorePatterns: ['lib', '.vercel', '.svelte-kit'],
 }
 module.exports = config

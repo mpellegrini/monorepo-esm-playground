@@ -7,13 +7,15 @@
   "exports": "./lib/index.js",
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
-    "lint": "TIMING=1 eslint ./src --ext .ts",
+    "lint": "TIMING=1 eslint .",
     "test": "vitest --run",
     "clean": "del .turbo lib .coverage"
   },
   "devDependencies": {
     "@toolchain/eslint-config": "workspace:*",
-    "@toolchain/ts-config": "workspace:*",
-    "@toolchain/vitest-config": "workspace:*"
+    "@toolchain/ts-config": "workspace:*"
+  },
+  "dependencies": {
+    "@toolchain/jest-config": "workspace:*"
   }
 }
