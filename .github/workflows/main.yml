@@ -8,7 +8,8 @@ on:
 jobs:
   build_lint_and_test:
     name: Build, lint, and test
-    runs-on: ubuntu-latest
+    runs-on:
+      group: ubuntu-larger-runners
     permissions:
       contents: 'read'
       actions: 'read'
