@@ -8,7 +8,6 @@
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
     "lint": "TIMING=1 eslint .",
-    "test": "vitest --run --passWithNoTests",
     "clean": "del .turbo lib .coverage"
   },
   "devDependencies": {
