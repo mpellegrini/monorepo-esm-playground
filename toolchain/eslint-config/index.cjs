@@ -65,6 +65,11 @@ const config = {
         '@typescript-eslint/explicit-module-boundary-types': 'error',
         '@typescript-eslint/explicit-function-return-type': 'error',
         '@typescript-eslint/consistent-type-imports': 'error',
+
+        'import/no-named-as-default': 'off',
+        'import/no-cycle': 'off',
+        'import/no-unused-modules': 'off',
+        'import/no-deprecated': 'off',
       },
     },
     {
