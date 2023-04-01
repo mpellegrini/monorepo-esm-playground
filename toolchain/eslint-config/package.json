@@ -6,13 +6,14 @@
   "type": "module",
   "exports": {
     ".": "./index.cjs",
+    "./patch/modern-module-resolution": "./patch/modern-module-resolution.cjs",
     "./profile/node-esm": "./profile/node-esm.cjs",
     "./profile/node-esm2": "./profile/node-esm2.cjs"
   },
   "devDependencies": {
+    "@rushstack/eslint-patch": "1.2.0",
     "@typescript-eslint/eslint-plugin": "5.57.0",
     "@typescript-eslint/parser": "5.57.0",
-    "eslint": "8.37.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-import-resolver-typescript": "3.5.4",
     "eslint-plugin-eslint-comments": "3.2.0",

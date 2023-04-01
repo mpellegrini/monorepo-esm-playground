@@ -18,7 +18,8 @@
     "aws-cdk": "2.72.1",
     "aws-cdk-lib": "2.72.1",
     "constructs": "10.1.298",
-    "esbuild": "0.17.14"
+    "esbuild": "0.17.14",
+    "eslint": "8.37.0"
   },
   "dependencies": {
     "@serverless/graphql-api": "workspace:*",

@@ -13,7 +13,8 @@
   "devDependencies": {
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
-    "@types/aws-lambda": "8.10.114"
+    "@types/aws-lambda": "8.10.114",
+    "eslint": "8.37.0"
   },
   "dependencies": {
     "@middy/core": "4.2.8",
