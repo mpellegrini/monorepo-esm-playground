@@ -386,10 +386,6 @@ importers:
         version: 8.37.0
 
   toolchain/eslint-config:
-    dependencies:
-      typescript:
-        specifier: '>=4.9.5'
-        version: 4.9.5
     devDependencies:
       '@rushstack/eslint-patch':
         specifier: 1.2.0
@@ -14555,6 +14551,7 @@ packages:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
     hasBin: true
+    dev: true
 
   /ua-parser-js@0.7.34:
     resolution: {integrity: sha512-cJMeh/eOILyGu0ejgTKB95yKT3zOenSe9UGE3vj6WfiOwgGYnmATUsnDixMFvdU+rNMvWih83hrUP8VwhF9yXQ==}
