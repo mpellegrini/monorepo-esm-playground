@@ -24,7 +24,7 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-node-dependencies": "0.10.0",
     "eslint-plugin-promise": "6.1.1",
-    "eslint-plugin-regexp": "1.13.0",
+    "eslint-plugin-regexp": "1.14.0",
     "eslint-plugin-svelte": "2.23.1",
     "eslint-plugin-yml": "1.5.0",
     "svelte-eslint-parser": "0.24.2"
