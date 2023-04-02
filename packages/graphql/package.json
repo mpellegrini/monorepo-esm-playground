@@ -11,7 +11,7 @@
     "lib/schema.merged.graphql"
   ],
   "scripts": {
-    "build": "pnpm codegen && tsc --project tsconfig.build.json && pnpm merge-schema",
+    "build": "pnpm codegen && tsc && pnpm merge-schema",
     "codegen": "graphql-codegen-esm --config codegen.cjs",
     "merge-schema": "ts-node --esm merge-schemas.ts",
     "clean": "del .turbo lib .coverage"

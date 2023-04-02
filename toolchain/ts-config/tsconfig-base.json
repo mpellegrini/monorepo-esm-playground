@@ -28,7 +28,7 @@
     "sourceMap": true                                 /* Create source map files for emitted JavaScript files. */,
     "outDir": "../../../lib",                         /* Specify an output folder for all emitted files. */
     "removeComments": true                            /* Disable emitting comments. */,
-    "noEmit": true,                                   /* Disable emitting files from a compilation. */
+    "noEmit": false,                                   /* Disable emitting files from a compilation. */
     "importsNotUsedAsValues": "error",                /* Specify emit/checking behavior for imports that are only used for types. */
     "noEmitOnError": true                             /* Disable emitting files if any type checking errors are reported. */,
 

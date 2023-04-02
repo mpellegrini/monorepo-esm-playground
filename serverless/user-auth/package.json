@@ -8,7 +8,7 @@
     "./stack": "./lib/stack/index.js"
   },
   "scripts": {
-    "build": "tsc --project tsconfig.build.json",
+    "build": "tsc",
     "lint": "TIMING=1 eslint .",
     "clean": "del .turbo lib .coverage"
   },
