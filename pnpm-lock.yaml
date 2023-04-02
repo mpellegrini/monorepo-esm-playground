@@ -206,9 +206,6 @@ importers:
       '@toolchain/ts-config':
         specifier: workspace:*
         version: link:../../toolchain/ts-config
-      '@types/jest':
-        specifier: 29.5.0
-        version: 29.5.0
       eslint:
         specifier: 8.37.0
         version: 8.37.0
