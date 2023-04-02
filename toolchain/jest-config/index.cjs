@@ -1,4 +1,4 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} */
+/** @type {import("jest").Config} */
 
 module.exports = {
   // An array of file extensions your modules use.
@@ -31,9 +31,6 @@ module.exports = {
   // Make calling deprecated APIs throw helpful error messages.
   errorOnDeprecated: true,
 
-  // A preset that is used as a base for Jest's configuration.
-  preset: 'ts-jest/presets/default-esm',
-
   // Jest now ships with a reporter to be used on GitHub Actions, which will
   // use annotations to print test errors inline
   // https://jestjs.io/blog/2022/04/25/jest-28#github-actions-reporter
@@ -58,14 +55,26 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    '^.+\\.tsx?$': [
-      'ts-jest',
+    '^.+\\.(t|j)sx?$': [
+      '@swc/jest',
       {
-        useESM: true,
-        tsconfig: './tsconfig.json',
+        jsc: {
+          target: 'es2022',
+          parser: {
+            syntax: 'typescript',
+            tsx: false,
+            decorators: true,
+            dynamicImport: false,
+          },
+          transform: {
+            legacyDecorator: true,
+            decoratorMetadata: true,
+          },
+        },
       },
     ],
   },
-}
 
-// extensionsToTreatAsEsm: ['.ts'],
+  // list any other file extensions that should run with native ESM
+  extensionsToTreatAsEsm: ['.ts'],
+}
