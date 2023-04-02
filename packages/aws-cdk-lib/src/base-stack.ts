@@ -2,7 +2,7 @@ import type { StackProps } from 'aws-cdk-lib'
 import { Stack } from 'aws-cdk-lib'
 import type { Construct } from 'constructs'
 
-import { nameIt } from './index.js'
+import { nameIt } from './utils.js'
 
 export class BaseStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
