@@ -13,8 +13,7 @@
   },
   "devDependencies": {
     "@toolchain/eslint-config": "workspace:*",
-    "@toolchain/ts-config": "workspace:*",
-    "eslint": "8.37.0"
+    "@toolchain/ts-config": "workspace:*"
   },
   "dependencies": {
     "@toolchain/jest-config": "workspace:*"

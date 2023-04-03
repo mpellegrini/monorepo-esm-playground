@@ -10,9 +10,6 @@
     "./profile/node-esm": "./profile/node-esm.cjs",
     "./profile/node-esm2": "./profile/node-esm2.cjs"
   },
-  "devDependencies": {
-    "eslint": "8.37.0"
-  },
   "dependencies": {
     "@rushstack/eslint-patch": "1.2.0",
     "@typescript-eslint/eslint-plugin": "5.57.0",
@@ -32,5 +29,8 @@
     "eslint-plugin-svelte": "2.25.0",
     "eslint-plugin-yml": "1.5.0",
     "svelte-eslint-parser": "0.25.1"
+  },
+  "devDependencies": {
+    "eslint": "8.37.0"
   }
 }

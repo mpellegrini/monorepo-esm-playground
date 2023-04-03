@@ -71,9 +71,6 @@ importers:
       autoprefixer:
         specifier: 10.4.14
         version: 10.4.14(postcss@8.4.21)
-      eslint:
-        specifier: 8.37.0
-        version: 8.37.0
       houdini:
         specifier: 1.1.5
         version: 1.1.5
@@ -135,9 +132,6 @@ importers:
       esbuild:
         specifier: 0.17.15
         version: 0.17.15
-      eslint:
-        specifier: 8.37.0
-        version: 8.37.0
 
   infrastructure/shared-infrastructure:
     devDependencies:
@@ -156,9 +150,6 @@ importers:
       constructs:
         specifier: 10.1.299
         version: 10.1.299
-      eslint:
-        specifier: 8.37.0
-        version: 8.37.0
 
   packages/aws-cdk-lib:
     devDependencies:
@@ -177,9 +168,6 @@ importers:
       constructs:
         specifier: 10.1.299
         version: 10.1.299
-      eslint:
-        specifier: 8.37.0
-        version: 8.37.0
 
   packages/dbclient-pg:
     dependencies:
@@ -196,9 +184,6 @@ importers:
       '@types/node':
         specifier: 18.15.11
         version: 18.15.11
-      eslint:
-        specifier: 8.37.0
-        version: 8.37.0
 
   packages/example-pkg:
     dependencies:
@@ -212,9 +197,6 @@ importers:
       '@toolchain/ts-config':
         specifier: workspace:*
         version: link:../../toolchain/ts-config
-      eslint:
-        specifier: 8.37.0
-        version: 8.37.0
 
   packages/graphql:
     devDependencies:
@@ -288,9 +270,6 @@ importers:
       '@types/aws-lambda':
         specifier: 8.10.114
         version: 8.10.114
-      eslint:
-        specifier: 8.37.0
-        version: 8.37.0
 
   packages/observability:
     dependencies:
@@ -310,9 +289,6 @@ importers:
       '@toolchain/ts-config':
         specifier: workspace:*
         version: link:../../toolchain/ts-config
-      eslint:
-        specifier: 8.37.0
-        version: 8.37.0
 
   serverless/graphql-api:
     dependencies:
@@ -353,9 +329,6 @@ importers:
       constructs:
         specifier: 10.1.299
         version: 10.1.299
-      eslint:
-        specifier: 8.37.0
-        version: 8.37.0
 
   serverless/user-auth:
     dependencies:
@@ -390,9 +363,6 @@ importers:
       constructs:
         specifier: 10.1.299
         version: 10.1.299
-      eslint:
-        specifier: 8.37.0
-        version: 8.37.0
 
   toolchain/eslint-config:
     dependencies:
