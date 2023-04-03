@@ -1,6 +1,7 @@
 import { Aspects, Stack, type StackProps, Tag } from 'aws-cdk-lib'
 import type { ISubnet } from 'aws-cdk-lib/aws-ec2'
 import {
+  GatewayVpcEndpointAwsService,
   InstanceClass,
   InstanceSize,
   InstanceType,
@@ -11,9 +12,11 @@ import {
 } from 'aws-cdk-lib/aws-ec2'
 import type { Construct } from 'constructs'
 
-export class NetworkStack extends Stack {
-  // public readonly vpc: IVpc
+import { BaseStack } from '@packages/aws-cdk-lib'
 
+// see https://adrianhesketh.com/2022/05/31/create-vpc-with-cdk/
+
+export class NetworkStack extends BaseStack {
   constructor(scope: Construct, id: string, props: StackProps) {
     super(scope, id, props)
 
@@ -25,7 +28,7 @@ export class NetworkStack extends Stack {
         instanceType: InstanceType.of(InstanceClass.T3, InstanceSize.NANO),
       }),
       natGateways: 0,
-      maxAzs: 2,
+      maxAzs: 1,
       subnetConfiguration: [
         {
           name: 'public-subnet-1',
@@ -51,6 +54,10 @@ export class NetworkStack extends Stack {
     this.nameSubnets(vpc.node.id, vpc.isolatedSubnets)
 
     vpc.addFlowLog('FlowLog')
+
+    vpc.addGatewayEndpoint('s3Endpoint', {
+      service: GatewayVpcEndpointAwsService.S3,
+    })
   }
 
   private nameSubnets(vpcNodeId: string, subnets: ISubnet[]): void {

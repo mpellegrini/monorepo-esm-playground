@@ -138,6 +138,7 @@ const config = {
         pathGroups: [
           { pattern: '@packages/**', group: 'internal' },
           { pattern: '@serverless/**', group: 'internal' },
+          { pattern: '@infrastructure/**', group: 'internal' },
         ],
         'newlines-between': 'always-and-inside-groups',
         pathGroupsExcludedImportTypes: ['internal'],

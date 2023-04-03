@@ -22,6 +22,7 @@
     "eslint": "8.37.0"
   },
   "dependencies": {
+    "@infrastructure/shared-infrastructure": "workspace:*",
     "@serverless/graphql-api": "workspace:*",
     "@serverless/user-auth": "workspace:*"
   }
