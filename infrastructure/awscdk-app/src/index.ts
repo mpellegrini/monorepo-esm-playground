@@ -1,6 +1,7 @@
+import { NetworkStack } from '@infrastructure/shared-infrastructure'
 import { BaseApp } from '@packages/aws-cdk-lib'
-import { AppSyncStack } from '@serverless/graphql-api/stack'
-import { AuthStack } from '@serverless/user-auth/stack'
+// import { AppSyncStack } from '@serverless/graphql-api/stack'
+// import { AuthStack } from '@serverless/user-auth/stack'
 
 const app = new BaseApp({
   context: {
@@ -11,8 +12,9 @@ const app = new BaseApp({
   },
 })
 
-const authStack = new AuthStack(app, 'UserAuth')
+new NetworkStack(app, 'SharedNetwork')
 
-new AppSyncStack(app, 'AppSync', { userPool: authStack.userPool })
+// new AuthStack(app, 'UserAuth')
+// new AppSyncStack(app, 'AppSync', { userPool: authStack.userPool })
 
 app.synth()

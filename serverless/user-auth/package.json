@@ -18,7 +18,7 @@
     "@toolchain/ts-config": "workspace:*",
     "@types/node": "18.15.11",
     "aws-cdk-lib": "2.72.1",
-    "constructs": "10.1.299"
+    "constructs": "10.1.301"
   },
   "dependencies": {
     "@aws-sdk/client-cognito-identity-provider": "3.303.0",

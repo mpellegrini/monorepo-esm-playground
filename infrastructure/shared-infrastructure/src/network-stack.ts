@@ -17,7 +17,7 @@ import { BaseStack } from '@packages/aws-cdk-lib'
 // see https://adrianhesketh.com/2022/05/31/create-vpc-with-cdk/
 
 export class NetworkStack extends BaseStack {
-  constructor(scope: Construct, id: string, props: StackProps) {
+  constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props)
 
     const stackName = Stack.of(this).stackName

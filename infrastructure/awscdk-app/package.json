@@ -17,7 +17,7 @@
     "@toolchain/ts-config": "workspace:*",
     "aws-cdk": "2.72.1",
     "aws-cdk-lib": "2.72.1",
-    "constructs": "10.1.299",
+    "constructs": "10.1.301",
     "esbuild": "0.17.15"
   },
   "dependencies": {
