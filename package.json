@@ -8,7 +8,7 @@
     "lint": "turbo run lint",
     "test": "turbo run test",
     "clean": "turbo run clean",
-    "format": "prettier --write '**/*.{ts,tsx,svelte,vue,js,html,md,yaml}'"
+    "format": "prettier --write '**/*.{ts,js,cts,mts,cjs,mjs,md,yaml,json,svelte}'"
   },
   "engines": {
     "npm": ">=8.0.0",
@@ -16,7 +16,7 @@
   },
   "packageManager": "pnpm@8.1.0",
   "lint-staged": {
-    "*.{ts,tsx,svelte,js,cjs,mjs,md,yaml}": [
+    "*.{ts,js,cts,mts,cjs,mjs,md,yaml,json,svelte}": [
       "prettier --write"
     ]
   },

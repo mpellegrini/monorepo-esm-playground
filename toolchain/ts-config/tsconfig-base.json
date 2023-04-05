@@ -29,10 +29,10 @@
     "outDir": "../../../lib",                         /* Specify an output folder for all emitted files. */
     "removeComments": true,                           /* Disable emitting comments. */
     "noEmit": false,                                  /* Disable emitting files from a compilation. */
-    "importsNotUsedAsValues": "remove",               /* Specify emit/checking behavior for imports that are only used for types. */
     "noEmitOnError": true,                            /* Disable emitting files if any type checking errors are reported. */
 
     /* Interop Constraints */
+    "verbatimModuleSyntax": true,                     /* Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the 'module' setting. */
     "esModuleInterop": true,                          /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for type compatibility. */
     "forceConsistentCasingInFileNames": true,         /* Ensure that casing is correct in imports. */
 
