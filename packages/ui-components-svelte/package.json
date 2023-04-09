@@ -7,18 +7,13 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "svelte": "./dist/index.js"
+      "types": "./lib/index.d.ts",
+      "svelte": "./lib/index.js"
     }
   },
-  "files": [
-    "dist",
-    "!dist/**/*.test.*",
-    "!dist/**/*.spec.*"
-  ],
   "scripts": {
     "dev": "vite dev",
-    "build": "pnpm check && svelte-package",
+    "build": "pnpm check && svelte-package -o lib",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "clean": "del .svelte-kit .turbo dist"
