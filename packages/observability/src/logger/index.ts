@@ -7,6 +7,11 @@ export const LOG_LEVEL = {
   ERROR: 'ERROR',
 } as const
 
-export const logger = new Logger({})
+export const logger = new Logger({
+  persistentLogAttributes: {
+    aws_account_id: process.env['AWS_ACCOUNT_ID'] || 'N/A',
+    aws_region: process.env['AWS_REGION'] || 'N/A',
+  },
+})
 
 export { injectLambdaContext } from '@aws-lambda-powertools/logger'
