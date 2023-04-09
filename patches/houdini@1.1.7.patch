@@ -1,0 +1,27 @@
+diff --git a/package.json b/package.json
+index 28c1ce773d6612268c9ce8bd517ac209a1fc2cef..a2ed2a0e6c2517f35bcadc83cbe4ba1f7a76937a 100644
+--- a/package.json
++++ b/package.json
+@@ -58,18 +58,22 @@
+   "exports": {
+     "./package.json": "./package.json",
+     "./codegen": {
++      "types": "./build/codegen/index.d.ts",
+       "import": "./build/codegen-esm/index.js",
+       "require": "./build/codegen-cjs/index.js"
+     },
+     ".": {
++      "types": "./build/lib/index.d.ts",
+       "import": "./build/lib-esm/index.js",
+       "require": "./build/lib-cjs/index.js"
+     },
+     "./test": {
++      "types": "./build/test/index.d.ts",
+       "import": "./build/test-esm/index.js",
+       "require": "./build/test-cjs/index.js"
+     },
+     "./vite": {
++      "types": "./build/vite/index.d.ts",
+       "import": "./build/vite-esm/index.js",
+       "require": "./build/vite-cjs/index.js"
+     }
