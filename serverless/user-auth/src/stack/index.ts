@@ -16,6 +16,7 @@ import { Architecture, LayerVersion, Runtime, Tracing } from 'aws-cdk-lib/aws-la
 import type { NodejsFunctionProps } from 'aws-cdk-lib/aws-lambda-nodejs'
 import { LogLevel, NodejsFunction, OutputFormat } from 'aws-cdk-lib/aws-lambda-nodejs'
 import { RetentionDays } from 'aws-cdk-lib/aws-logs'
+import { StringParameter } from 'aws-cdk-lib/aws-ssm'
 import type { Construct } from 'constructs'
 
 import { BaseStack } from '@packages/aws-cdk-lib'
@@ -173,6 +174,12 @@ export class AuthStack extends BaseStack {
         custom: false,
       },
       supportedIdentityProviders: [UserPoolClientIdentityProvider.COGNITO],
+    })
+
+    new StringParameter(this, 'Parameter', {
+      parameterName: '/userAuth/userPoolId',
+      description: 'User Pool Id from UserAuth stack',
+      stringValue: myUserPool.userPoolId,
     })
 
     this.userPool = myUserPool
