@@ -18,12 +18,12 @@
     "@toolchain/ts-config": "workspace:*",
     "@types/node": "18.15.11",
     "aws-cdk-lib": "2.73.0",
-    "constructs": "10.1.306"
+    "constructs": "10.1.307"
   },
   "dependencies": {
     "@aws-sdk/client-cognito-identity-provider": "3.310.0",
     "@packages/lambda-middleware": "workspace:*",
     "@packages/observability": "workspace:*",
-    "@sinclair/typebox": "0.27.1"
+    "@sinclair/typebox": "0.27.3"
   }
 }

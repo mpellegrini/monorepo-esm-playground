@@ -133,10 +133,10 @@ importers:
         version: 2.73.0
       aws-cdk-lib:
         specifier: 2.73.0
-        version: 2.73.0(constructs@10.1.306)
+        version: 2.73.0(constructs@10.1.307)
       constructs:
-        specifier: 10.1.306
-        version: 10.1.306
+        specifier: 10.1.307
+        version: 10.1.307
       esbuild:
         specifier: 0.17.16
         version: 0.17.16
@@ -154,10 +154,10 @@ importers:
         version: link:../../toolchain/ts-config
       aws-cdk-lib:
         specifier: 2.73.0
-        version: 2.73.0(constructs@10.1.306)
+        version: 2.73.0(constructs@10.1.307)
       constructs:
-        specifier: 10.1.306
-        version: 10.1.306
+        specifier: 10.1.307
+        version: 10.1.307
 
   packages/aws-cdk-lib:
     devDependencies:
@@ -169,13 +169,13 @@ importers:
         version: link:../../toolchain/ts-config
       aws-cdk-lib:
         specifier: 2.73.0
-        version: 2.73.0(constructs@10.1.306)
+        version: 2.73.0(constructs@10.1.307)
       change-case:
         specifier: 4.1.2
         version: 4.1.2
       constructs:
-        specifier: 10.1.306
-        version: 10.1.306
+        specifier: 10.1.307
+        version: 10.1.307
 
   packages/dbclient-pg:
     dependencies:
@@ -390,10 +390,10 @@ importers:
         version: 18.15.11
       aws-cdk-lib:
         specifier: 2.73.0
-        version: 2.73.0(constructs@10.1.306)
+        version: 2.73.0(constructs@10.1.307)
       constructs:
-        specifier: 10.1.306
-        version: 10.1.306
+        specifier: 10.1.307
+        version: 10.1.307
 
   serverless/user-auth:
     dependencies:
@@ -407,8 +407,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/observability
       '@sinclair/typebox':
-        specifier: 0.27.1
-        version: 0.27.1
+        specifier: 0.27.3
+        version: 0.27.3
     devDependencies:
       '@packages/aws-cdk-lib':
         specifier: workspace:*
@@ -424,10 +424,10 @@ importers:
         version: 18.15.11
       aws-cdk-lib:
         specifier: 2.73.0
-        version: 2.73.0(constructs@10.1.306)
+        version: 2.73.0(constructs@10.1.307)
       constructs:
-        specifier: 10.1.306
-        version: 10.1.306
+        specifier: 10.1.307
+        version: 10.1.307
 
   toolchain/eslint-config:
     dependencies:
@@ -4883,8 +4883,8 @@ packages:
     resolution: {integrity: sha512-XJfwUVUKDHF5ugKwIcxEgc9k8b7HbznCp6eUfWgu710hMPNIO4aw4/zB5RogDQz8nd6gyCDpU9O/m6qYEWY6yQ==}
     dev: true
 
-  /@sinclair/typebox@0.27.1:
-    resolution: {integrity: sha512-+BzPidY3shay9ue8Qa2v6Z5HO4HWP0+irwMQcs6PEDWf//Iu7U7+b+W3+aXdovFFl/Sh3yyKKXlJhQ0h3zIMBg==}
+  /@sinclair/typebox@0.27.3:
+    resolution: {integrity: sha512-mzSyMA75B1kVzw6P/mo9J9cBCOqtA0GvbIOhlSonRtDSR4jQyla1opsgNnHKzXuCqhVef/Nv+F+z2ueNrIVLVQ==}
     dev: false
 
   /@sindresorhus/is@4.6.0:
@@ -6307,7 +6307,7 @@ packages:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
     engines: {node: '>= 0.4'}
 
-  /aws-cdk-lib@2.73.0(constructs@10.1.306):
+  /aws-cdk-lib@2.73.0(constructs@10.1.307):
     resolution: {integrity: sha512-r9CUe3R7EThr9U0Eb7kQCK4Ee34TDeMH+bonvGD9rNRRTYDauvAgNCsx4DZYYksPrXLRzWjzVbuXAHaDDzWt+A==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
@@ -6318,7 +6318,7 @@ packages:
       '@aws-cdk/asset-node-proxy-agent-v5': 2.0.107
       '@balena/dockerignore': 1.0.2
       case: 1.6.3
-      constructs: 10.1.306
+      constructs: 10.1.307
       fs-extra: 9.1.0
       ignore: 5.2.4
       jsonschema: 1.4.1
@@ -7113,8 +7113,8 @@ packages:
       upper-case: 2.0.2
     dev: true
 
-  /constructs@10.1.306:
-    resolution: {integrity: sha512-7UruYLZLOk7qN9fQRX339iluZnqLVEPg8jSiKmKtehY4Sk0V91AOCe8/YccpYYTsMud3EKha8TT1zJa5SJPQug==}
+  /constructs@10.1.307:
+    resolution: {integrity: sha512-+4dRbsbuCVWIgKQNu7I6UsFlq25ct6Rlb9jBddddcja32LQbvSvvW2dyrVklQy4rtuAyJavMJthBLhXOi3E5JA==}
     engines: {node: '>= 14.17.0'}
     dev: true
 
