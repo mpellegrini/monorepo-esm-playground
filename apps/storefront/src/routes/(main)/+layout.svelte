@@ -1,5 +1,5 @@
 <script lang="ts">
-  import FormattedDate from '@packages/svelte-ui/FormattedDate.svelte'
+  import { FormattedDate } from '@packages/svelte-ui'
 </script>
 
 <div>

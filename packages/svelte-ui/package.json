@@ -6,13 +6,9 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./FormattedDate.svelte": {
-      "types": "./lib/FormattedDate/FormattedDate.svelte.d.ts",
-      "svelte": "./lib/FormattedDate/FormattedDate.svelte.d.ts"
-    },
-    "./ResponsiveImg.svelte": {
-      "types": "./lib/ResponsiveImg/ResponsiveImg.svelte.d.ts",
-      "svelte": "./lib/ResponsiveImg/ResponsiveImg.svelte.d.ts"
+    ".": {
+      "types": "./lib/index.d.ts",
+      "svelte": "./lib/index.js"
     }
   },
   "scripts": {
