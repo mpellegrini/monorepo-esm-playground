@@ -5,11 +5,14 @@ import middy from '@middy/core'
 
 import type {
   AppSyncResolverEvent,
+  EventBridgeEvent,
   Context as LambdaContext,
   PostAuthenticationTriggerEvent,
   PostConfirmationTriggerEvent,
   PreAuthenticationTriggerEvent,
   PreSignUpTriggerEvent,
+  S3NotificationEvent,
+  S3ObjectCreatedNotificationEvent,
   UserMigrationTriggerEvent,
 } from 'aws-lambda'
 
@@ -60,3 +63,12 @@ export type AppSyncResolverHandler<
   TResult = unknown,
   TSource = Record<string, unknown> | null,
 > = AsyncHandler<AppSyncResolverEvent<TArgs, TSource>, TResult>
+
+export { type S3ObjectCreatedNotificationEvent }
+
+export type S3NotificationEventBridgeHandler<
+  EventType extends S3NotificationEvent = S3NotificationEvent,
+> = AsyncHandler<
+  EventBridgeEvent<EventType['detail-type'], EventType['detail']> & { source: 'aws.s3' },
+  void
+>
