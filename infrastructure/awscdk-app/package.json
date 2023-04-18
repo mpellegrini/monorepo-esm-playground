@@ -15,10 +15,10 @@
     "@packages/aws-cdk-lib": "workspace:*",
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
-    "aws-cdk": "2.73.0",
-    "aws-cdk-lib": "2.73.0",
-    "constructs": "10.1.308",
-    "esbuild": "0.17.16"
+    "aws-cdk": "2.75.0",
+    "aws-cdk-lib": "2.75.0",
+    "constructs": "10.2.0",
+    "esbuild": "0.17.17"
   },
   "dependencies": {
     "@infrastructure/shared-infrastructure": "workspace:*",

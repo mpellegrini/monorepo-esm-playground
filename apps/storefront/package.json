@@ -17,25 +17,25 @@
   "devDependencies": {
     "@fontsource/inter": "4.5.15",
     "@packages/svelte-ui": "workspace:*",
-    "@sveltejs/adapter-vercel": "2.4.1",
-    "@sveltejs/kit": "1.15.2",
+    "@sveltejs/adapter-vercel": "2.4.2",
+    "@sveltejs/kit": "1.15.7",
     "@tailwindcss/forms": "0.5.3",
     "@toolchain/eslint-config": "workspace:*",
     "autoprefixer": "10.4.14",
     "houdini": "1.1.7",
     "houdini-svelte": "1.1.7",
-    "postcss": "8.4.21",
+    "postcss": "8.4.22",
     "svelte": "3.58.0",
     "svelte-check": "3.2.0",
     "tailwindcss": "3.3.1",
     "tslib": "2.5.0",
-    "vite": "4.2.1",
+    "vite": "4.2.2",
     "vite-plugin-mkcert": "1.14.0"
   },
   "dependencies": {
-    "@aws-sdk/client-cognito-identity-provider": "3.310.0",
+    "@aws-sdk/client-cognito-identity-provider": "3.315.0",
     "@packages/graphql": "workspace:*",
     "aws-jwt-verify": "4.0.0",
-    "stripe": "12.0.0"
+    "stripe": "12.1.1"
   }
 }
