@@ -115,6 +115,9 @@ importers:
       '@serverless/graphql-api':
         specifier: workspace:*
         version: link:../../serverless/graphql-api
+      '@serverless/media-files':
+        specifier: workspace:*
+        version: link:../../serverless/media-files
       '@serverless/user-auth':
         specifier: workspace:*
         version: link:../../serverless/user-auth
@@ -355,6 +358,34 @@ importers:
       '@toolchain/jest-config':
         specifier: workspace:*
         version: link:../../toolchain/jest-config
+      '@toolchain/ts-config':
+        specifier: workspace:*
+        version: link:../../toolchain/ts-config
+      '@types/node':
+        specifier: 18.15.11
+        version: 18.15.11
+      aws-cdk-lib:
+        specifier: 2.75.0
+        version: 2.75.0(constructs@10.2.0)
+      constructs:
+        specifier: 10.2.0
+        version: 10.2.0
+
+  serverless/media-files:
+    dependencies:
+      '@packages/lambda-middleware':
+        specifier: workspace:*
+        version: link:../../packages/lambda-middleware
+      '@packages/observability':
+        specifier: workspace:*
+        version: link:../../packages/observability
+    devDependencies:
+      '@packages/aws-cdk-lib':
+        specifier: workspace:*
+        version: link:../../packages/aws-cdk-lib
+      '@toolchain/eslint-config':
+        specifier: workspace:*
+        version: link:../../toolchain/eslint-config
       '@toolchain/ts-config':
         specifier: workspace:*
         version: link:../../toolchain/ts-config

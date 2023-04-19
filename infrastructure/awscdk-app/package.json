@@ -23,6 +23,7 @@
   "dependencies": {
     "@infrastructure/shared-infrastructure": "workspace:*",
     "@serverless/graphql-api": "workspace:*",
+    "@serverless/media-files": "workspace:*",
     "@serverless/user-auth": "workspace:*"
   }
 }

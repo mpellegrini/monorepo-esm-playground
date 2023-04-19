@@ -13,6 +13,7 @@ import type {
   PreSignUpTriggerEvent,
   S3NotificationEvent,
   S3ObjectCreatedNotificationEvent,
+  S3ObjectDeletedNotificationEvent,
   UserMigrationTriggerEvent,
 } from 'aws-lambda'
 
@@ -64,7 +65,7 @@ export type AppSyncResolverHandler<
   TSource = Record<string, unknown> | null,
 > = AsyncHandler<AppSyncResolverEvent<TArgs, TSource>, TResult>
 
-export { type S3ObjectCreatedNotificationEvent }
+export type { S3ObjectCreatedNotificationEvent, S3ObjectDeletedNotificationEvent }
 
 export type S3NotificationEventBridgeHandler<
   EventType extends S3NotificationEvent = S3NotificationEvent,
