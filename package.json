@@ -14,7 +14,7 @@
     "npm": ">=8.0.0",
     "node": ">=16.0.0"
   },
-  "packageManager": "pnpm@8.1.0",
+  "packageManager": "pnpm@8.3.1",
   "lint-staged": {
     "*.{ts,js,cts,mts,cjs,mjs,md,yaml,json,svelte}": [
       "prettier --write"
@@ -31,11 +31,6 @@
     "prettier-plugin-tailwindcss": "0.2.7",
     "turbo": "1.9.3",
     "typescript": "5.0.4",
-    "vercel": "28.18.5"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "houdini@1.1.7": "patches/houdini@1.1.7.patch"
-    }
+    "vercel": "28.19.0"
   }
 }

@@ -15,9 +15,9 @@
     "@packages/aws-cdk-lib": "workspace:*",
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
-    "aws-cdk": "2.75.0",
-    "aws-cdk-lib": "2.75.0",
-    "constructs": "10.2.0",
+    "aws-cdk": "2.76.0",
+    "aws-cdk-lib": "2.76.0",
+    "constructs": "10.2.1",
     "esbuild": "0.17.17"
   },
   "dependencies": {
