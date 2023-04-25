@@ -15,6 +15,6 @@
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
     "aws-cdk-lib": "2.76.0",
-    "constructs": "10.2.1"
+    "constructs": "10.2.6"
   }
 }

@@ -16,9 +16,9 @@
     "@packages/aws-cdk-lib": "workspace:*",
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
-    "@types/node": "18.15.12",
+    "@types/node": "18.16.0",
     "aws-cdk-lib": "2.76.0",
-    "constructs": "10.2.1"
+    "constructs": "10.2.6"
   },
   "dependencies": {
     "@packages/lambda-middleware": "workspace:*",

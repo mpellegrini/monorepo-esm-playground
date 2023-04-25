@@ -1,8 +1,7 @@
-import 'reflect-metadata'
-import { autoInjectable, container } from 'tsyringe'
+import { createInjector } from 'typed-inject'
 
-describe('tsyringe', () => {
-  it('@autoInjectable allows for injection to be performed without using .resolve()', () => {
+describe('typed-inject', () => {
+  it('basic test', () => {
     expect.hasAssertions()
 
     class Bar {
@@ -12,14 +11,15 @@ describe('tsyringe', () => {
       }
     }
 
-    @autoInjectable()
     class Foo {
       constructor(public myBar: Bar) {
         console.log(myBar)
       }
+      public static inject = ['mybar'] as const
     }
 
-    const myFoo = container.resolve(Foo)
+    const appInjector = createInjector().provideClass('mybar', Bar)
+    const myFoo = appInjector.injectClass(Foo)
 
     expect(myFoo.myBar instanceof Bar).toBeTruthy()
   })

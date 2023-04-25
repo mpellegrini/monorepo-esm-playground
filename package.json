@@ -26,11 +26,11 @@
     "del-cli": "5.0.0",
     "husky": "8.0.3",
     "lint-staged": "13.2.1",
-    "prettier": "2.8.7",
+    "prettier": "2.8.8",
     "prettier-plugin-svelte": "2.10.0",
     "prettier-plugin-tailwindcss": "0.2.7",
     "turbo": "1.9.3",
     "typescript": "5.0.4",
-    "vercel": "28.19.0"
+    "vercel": "28.20.0"
   }
 }
