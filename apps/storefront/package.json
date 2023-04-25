@@ -20,6 +20,7 @@
     "@sveltejs/adapter-vercel": "2.4.2",
     "@sveltejs/kit": "1.15.8",
     "@tailwindcss/forms": "0.5.3",
+    "@tailwindcss/typography": "0.5.9",
     "@toolchain/eslint-config": "workspace:*",
     "autoprefixer": "10.4.14",
     "houdini": "1.2.2",
