@@ -1,13 +1,16 @@
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import type { StackProps } from 'aws-cdk-lib'
-import { Duration, Stack } from 'aws-cdk-lib'
+import { Duration, Stack, type StackProps } from 'aws-cdk-lib'
 import { EventBus, Rule } from 'aws-cdk-lib/aws-events'
 import { LambdaFunction } from 'aws-cdk-lib/aws-events-targets'
 import { Architecture, LayerVersion, Runtime, Tracing } from 'aws-cdk-lib/aws-lambda'
-import type { NodejsFunctionProps } from 'aws-cdk-lib/aws-lambda-nodejs'
-import { LogLevel, NodejsFunction, OutputFormat } from 'aws-cdk-lib/aws-lambda-nodejs'
+import {
+  LogLevel,
+  NodejsFunction,
+  type NodejsFunctionProps,
+  OutputFormat,
+} from 'aws-cdk-lib/aws-lambda-nodejs'
 import { RetentionDays } from 'aws-cdk-lib/aws-logs'
 import type { Construct } from 'constructs'
 
@@ -43,7 +46,6 @@ export class MediaFiles extends BaseStack {
     super(scope, id, props)
 
     const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
     nodejsFunctionProps.layers?.push(
       LayerVersion.fromLayerVersionArn(
         this,

@@ -1,8 +1,6 @@
-// import { NetworkStack } from '@infrastructure/shared-infrastructure'
 import { BaseApp } from '@packages/aws-cdk-lib'
-import { MediaFiles } from '@serverless/media-files/stack'
-// import { AppSyncStack } from '@serverless/graphql-api/stack'
-// import { AuthStack } from '@serverless/user-auth/stack'
+
+import { MyStack } from './my-stack.js'
 
 const app = new BaseApp({
   context: {
@@ -12,7 +10,9 @@ const app = new BaseApp({
     account: '111059790892',
   },
 })
-new MediaFiles(app, 'MediaFiles')
+
+new MyStack(app, 'MyStack')
+// new MediaFiles(app, 'MediaFiles')
 // new NetworkStack(app, 'SharedNetwork')
 
 // new AuthStack(app, 'UserAuth')
