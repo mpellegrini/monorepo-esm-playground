@@ -1,6 +1,5 @@
 import { BaseApp } from '@packages/aws-cdk-lib'
-
-import { MyStack } from './my-stack.js'
+import { MediaFiles } from '@serverless/media-files/stack'
 
 const app = new BaseApp({
   context: {
@@ -11,8 +10,8 @@ const app = new BaseApp({
   },
 })
 
-new MyStack(app, 'MyStack')
-// new MediaFiles(app, 'MediaFiles')
+// new MyStack(app, 'MyStack')
+new MediaFiles(app, 'MediaFiles')
 // new NetworkStack(app, 'SharedNetwork')
 
 // new AuthStack(app, 'UserAuth')
