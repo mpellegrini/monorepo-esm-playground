@@ -14,17 +14,17 @@
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
     "@types/aws-lambda": "8.10.114",
-    "@types/node": "18.16.0"
+    "@types/node": "18.16.3"
   },
   "dependencies": {
-    "@middy/core": "4.3.1",
-    "@middy/http-cors": "4.3.1",
-    "@middy/http-error-handler": "4.3.1",
-    "@middy/http-event-normalizer": "4.3.1",
-    "@middy/http-header-normalizer": "4.3.1",
-    "@middy/http-json-body-parser": "4.3.1",
-    "@middy/http-response-serializer": "4.3.1",
-    "@middy/http-security-headers": "4.3.1",
+    "@middy/core": "4.4.0",
+    "@middy/http-cors": "4.4.0",
+    "@middy/http-error-handler": "4.4.0",
+    "@middy/http-event-normalizer": "4.4.0",
+    "@middy/http-header-normalizer": "4.4.0",
+    "@middy/http-json-body-parser": "4.4.0",
+    "@middy/http-response-serializer": "4.4.0",
+    "@middy/http-security-headers": "4.4.0",
     "@packages/observability": "workspace:*"
   }
 }
