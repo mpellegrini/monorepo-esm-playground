@@ -19,7 +19,7 @@
     "@toolchain/ts-config": "workspace:*",
     "@types/node": "18.16.3",
     "aws-cdk-lib": "2.77.0",
-    "constructs": "10.2.11"
+    "constructs": "10.2.13"
   },
   "dependencies": {
     "@packages/graphql": "workspace:*",
