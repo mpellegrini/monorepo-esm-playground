@@ -1,5 +1,6 @@
 import { BaseApp } from '@packages/aws-cdk-lib'
-import { MediaFiles } from '@serverless/media-files/stack'
+
+import { MyStack } from './my-stack.js'
 
 const app = new BaseApp({
   context: {
@@ -10,8 +11,11 @@ const app = new BaseApp({
   },
 })
 
-// new MyStack(app, 'MyStack')
-new MediaFiles(app, 'MediaFiles')
+// new OidcStack(app, 'OidStack', {
+//   repos: ['teammercury-dev/monorepo-esm-playground'],
+// })
+new MyStack(app, 'MyStack')
+// new MediaFiles(app, 'MediaFiles')
 // new NetworkStack(app, 'SharedNetwork')
 
 // new AuthStack(app, 'UserAuth')
