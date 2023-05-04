@@ -54,3 +54,48 @@ jobs:
 
       - name: Test Monorepo
         run: pnpm test --filter=...[${{ env.NX_HEAD }}...${{ env.NX_BASE }}]
+
+  aws_deploy:
+    name: AWS Deploy
+    needs: build_lint_and_test
+    runs-on:
+      group: ubuntu-larger-runners
+    permissions:
+      id-token: write
+      contents: read
+    concurrency:
+      group: ${{ format('{0}-{1}', github.workflow, github.job) }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --ignore-scripts
+
+      - name: Build Monorepo
+        run: pnpm build --filter={./infrastructure/awscdk-app}...
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+
+      - name: CDK Diff
+        run: pnpm --filter "@infrastructure/awscdk-app" cdk diff
+
+      - name: CDK Synth
+        run: pnpm --filter "@infrastructure/awscdk-app" cdk synth
+
+      - name: CDK Deploy
+        run: pnpm --filter "@infrastructure/awscdk-app" cdk deploy --require-approval never
+
