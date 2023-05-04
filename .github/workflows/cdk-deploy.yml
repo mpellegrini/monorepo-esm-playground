@@ -33,6 +33,12 @@ jobs:
           aws-region: us-east-1
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
 
-      - name: Deploy using CDK
+      - name: CDK Diff
+        run: pnpm --filter "@infrastructure/awscdk-app" cdk diff
+
+      - name: CDK Synth
         run: pnpm --filter "@infrastructure/awscdk-app" cdk synth
+
+      - name: CDK Deploy
+        run: pnpm --filter "@infrastructure/awscdk-app" cdk deploy
 
