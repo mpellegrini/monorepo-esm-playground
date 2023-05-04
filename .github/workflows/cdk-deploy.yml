@@ -2,15 +2,12 @@ name: cdk-deploy
 on:
   workflow_dispatch:
 
-env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+permissions:
+  id-token: write
 
 jobs:
-  preview:
-    runs-on: ubuntu-latest
-    permissions:
-      id-token: write    
+  deploy:
+    runs-on: ubuntu-latest    
     steps:
       - name: Check out code
         uses: actions/checkout@v3
