@@ -2,13 +2,12 @@ name: cdk-deploy
 on:
   workflow_dispatch:
 
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
   deploy:
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Check out code
         uses: actions/checkout@v3
@@ -32,8 +31,8 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-region: us-east-1
-          role-to-assume: arn:aws:iam::111059790892:role/GitHubActionRole
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
 
-      - name: Print assumed role
-        run: aws sts get-caller-identity
+      - name: Deploy using CDK
+        run: pnpm --filter "@infrastructure/awscdk-app" cdk synth
 
