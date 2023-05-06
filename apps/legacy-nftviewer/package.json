@@ -1,5 +1,5 @@
 {
-  "name": "@apps/legacynft-viewer",
+  "name": "@apps/legacy-nftviewer",
   "version": "0.0.0",
   "description": "",
   "license": "UNLICENSED",
@@ -20,6 +20,7 @@
     "@sveltejs/kit": "1.16.2",
     "@tailwindcss/container-queries": "0.1.1",
     "@tailwindcss/forms": "0.5.3",
+    "@toolchain/eslint-config": "workspace:*",
     "autoprefixer": "10.4.14",
     "postcss": "8.4.23",
     "svelte": "3.59.0",
