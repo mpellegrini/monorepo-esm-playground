@@ -17,14 +17,14 @@
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/jest-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
-    "@types/node": "18.16.3",
-    "aws-cdk-lib": "2.77.0",
-    "constructs": "10.2.13"
+    "@types/node": "20.1.0",
+    "aws-cdk-lib": "2.78.0",
+    "constructs": "10.2.17"
   },
   "dependencies": {
     "@packages/graphql": "workspace:*",
     "@packages/lambda-middleware": "workspace:*",
     "@packages/observability": "workspace:*",
-    "typed-inject": "3.0.1"
+    "typed-inject": "4.0.0"
   }
 }
