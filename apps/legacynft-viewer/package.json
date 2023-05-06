@@ -7,11 +7,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "build:final": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "clean": "del .turbo .svelte-kit build"
+    "lint": "eslint .",
+    "clean": "del .turbo .svelte-kit '$houdini' .vercel"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "2.0.2",
