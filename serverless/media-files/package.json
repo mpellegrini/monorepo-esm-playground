@@ -21,6 +21,7 @@
     "constructs": "10.2.13"
   },
   "dependencies": {
+    "@packages/dbclient-pg": "workspace:*",
     "@packages/lambda-middleware": "workspace:*",
     "@packages/observability": "workspace:*"
   }

@@ -1,6 +1,7 @@
 {
   "name": "@apps/legacynft-viewer",
   "version": "0.0.0",
+  "description": "",
   "license": "UNLICENSED",
   "private": true,
   "type": "module",
@@ -27,6 +28,9 @@
     "vite": "4.3.4"
   },
   "dependencies": {
-    "@fontsource/inter": "4.5.15"
+    "@fontsource/inter": "4.5.15",
+    "@packages/dbclient-pg": "workspace:*",
+    "pg-promise": "11.4.3",
+    "proper-tags": "2.0.0-beta.0"
   }
 }

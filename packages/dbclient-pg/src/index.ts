@@ -16,18 +16,18 @@ const initOptions: IInitOptions = {
   },
 }
 
-export const pgp = pgPromise(initOptions)
+const pgp = pgPromise(initOptions)
 
 const dbParams: IConnectionParameters = {
-  host: 'POSTGRES_HOST',
-  port: parseInt('POSTGRES_PORT', 10),
-  database: 'POSTGRES_DATABASE',
-  user: 'POSTGRES_USER',
-  password: 'POSTGRES_PASSWORD',
+  host: 'ep-tiny-thunder-942611.us-east-2.aws.neon.tech',
+  port: 5432,
+  ssl: true,
+  database: 'hglegacy',
+  user: 'hguser',
+  password: 'gzwN1R7sPmiO',
   statement_timeout: 3000,
   connectionTimeoutMillis: 3000,
   max: 1,
-  application_name: 'monorepo-esm-playground',
+  application_name: process.env['POSTGRES_APP_NAME'] ?? '',
 }
-
 export const db: IDatabase<unknown> = pgp(dbParams)
