@@ -1,6 +1,5 @@
+import { CdkPipelineStack } from '@infrastructure/cdk-pipeline'
 import { BaseApp } from '@packages/aws-cdk-lib'
-
-import { MyStack } from './my-stack.js'
 
 const app = new BaseApp({
   context: {
@@ -11,14 +10,18 @@ const app = new BaseApp({
   },
 })
 
-// new OidcStack(app, 'OidStack', {
-//   repos: ['teammercury-dev/monorepo-esm-playground'],
-// })
-new MyStack(app, 'MyStack')
-// new MediaFiles(app, 'MediaFiles')
-// new NetworkStack(app, 'SharedNetwork')
-
-// new AuthStack(app, 'UserAuth')
-// new AppSyncStack(app, 'AppSync', { userPool: authStack.userPool })
+new CdkPipelineStack(app, 'CdkPipelineStack')
 
 app.synth()
+
+// class MyStage extends Stage {
+//   constructor(scope: Construct, id: string, props?: StageProps) {
+//     super(scope, id, props)
+//
+//     new NetworkStack(this, 'SharedNetwork')
+//   }
+// }
+
+// pipeline.addStage(
+//   new MyStage(app, 'Beta', { env: { account: '111059790892', region: 'us-east-1' } }),
+// )

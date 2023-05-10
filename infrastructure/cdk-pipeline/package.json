@@ -1,5 +1,5 @@
 {
-  "name": "@infrastructure/awscdk-app",
+  "name": "@infrastructure/cdk-pipeline",
   "version": "0.0.0",
   "license": "UNLICENSED",
   "private": true,
@@ -8,19 +8,14 @@
   "scripts": {
     "build": "tsc",
     "lint": "TIMING=1 eslint .",
-    "clean": "del .turbo lib .coverage cdk.out",
-    "cdk": "cdk"
+    "clean": "del .turbo lib .coverage cdk.out"
   },
   "devDependencies": {
+    "@packages/aws-cdk-lib": "workspace:*",
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
-    "aws-cdk": "2.78.0",
     "aws-cdk-lib": "2.78.0",
-    "constructs": "10.2.17",
-    "esbuild": "0.17.18"
-  },
-  "dependencies": {
-    "@infrastructure/cdk-pipeline": "workspace:*",
-    "@packages/aws-cdk-lib": "workspace:*"
+    "cdk-pipelines-github": "0.4.53",
+    "constructs": "10.2.17"
   }
 }
