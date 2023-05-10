@@ -18,7 +18,7 @@
     "@fontsource/inter": "4.5.15",
     "@packages/svelte-ui": "workspace:*",
     "@sveltejs/adapter-vercel": "2.4.3",
-    "@sveltejs/kit": "1.16.2",
+    "@sveltejs/kit": "1.16.3",
     "@tailwindcss/forms": "0.5.3",
     "@tailwindcss/typography": "0.5.9",
     "@toolchain/eslint-config": "workspace:*",

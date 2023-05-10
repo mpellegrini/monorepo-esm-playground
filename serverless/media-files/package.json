@@ -16,9 +16,9 @@
     "@packages/aws-cdk-lib": "workspace:*",
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
-    "@types/node": "20.1.1",
-    "aws-cdk-lib": "2.78.0",
-    "constructs": "10.2.17"
+    "@types/node": "20.1.2",
+    "aws-cdk-lib": "2.79.0",
+    "constructs": "10.2.18"
   },
   "dependencies": {
     "@packages/dbclient-pg": "workspace:*",
