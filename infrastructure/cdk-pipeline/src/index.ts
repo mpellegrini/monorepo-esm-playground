@@ -6,11 +6,13 @@ import type { Construct } from 'constructs'
 
 import { BaseStack } from '@packages/aws-cdk-lib'
 
+import { AppStage } from './app-stage.js'
+
 export class CdkPipelineStack extends BaseStack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props)
 
-    new GitHubWorkflow(this, 'Pipleline', {
+    const pipeline = new GitHubWorkflow(this, 'Pipleline', {
       workflowName: 'My Workfow',
       synth: new ShellStep('Build', {
         commands: ['echo "nothing to do (cdk.out is committed)"'],
@@ -29,5 +31,9 @@ export class CdkPipelineStack extends BaseStack {
       //   },
       // ],
     })
+
+    const deploy = new AppStage(this, 'Deploy')
+    const deployStage = pipeline.addStage(deploy)
+    deployStage.addPost()
   }
 }
