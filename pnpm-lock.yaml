@@ -36,7 +36,7 @@ importers:
         version: 5.0.4
       vercel:
         specifier: 29.3.0
-        version: 29.3.0(@types/node@20.1.3)(ts-node@10.9.1)
+        version: 29.3.0(@types/node@14.18.33)(ts-node@10.9.1)
 
   apps/admin:
     dependencies:
@@ -180,7 +180,7 @@ importers:
         version: 1.2.3
       houdini-svelte:
         specifier: 1.2.3
-        version: 1.2.3(@types/node@20.1.3)
+        version: 1.2.3(@types/node@14.18.33)
       postcss:
         specifier: 8.4.23
         version: 8.4.23
@@ -198,7 +198,7 @@ importers:
         version: 2.5.0
       vite:
         specifier: 4.3.5
-        version: 4.3.5(@types/node@20.1.3)
+        version: 4.3.5(@types/node@14.18.33)
       vite-plugin-mkcert:
         specifier: 1.15.0
         version: 1.15.0(vite@4.3.5)
@@ -211,9 +211,6 @@ importers:
       '@packages/aws-cdk-lib':
         specifier: workspace:*
         version: link:../../packages/aws-cdk-lib
-      '@sinclair/typebox':
-        specifier: 0.28.9
-        version: 0.28.9
     devDependencies:
       '@toolchain/eslint-config':
         specifier: workspace:*
@@ -274,6 +271,10 @@ importers:
         version: 10.2.20
 
   packages/aws-cdk-lib:
+    dependencies:
+      '@sinclair/typebox':
+        specifier: 0.28.9
+        version: 0.28.9
     devDependencies:
       '@toolchain/eslint-config':
         specifier: workspace:*
@@ -2730,6 +2731,10 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
+  /@balena/dockerignore@1.0.2:
+    resolution: {integrity: sha512-wMue2Sy4GAVTk6Ic4tJVcnfdau+gx2EnG7S+uAEe+TWJFqE4YoWN4/H8MSLj4eYJKxGg26lZwboEniNiNwZQ6Q==}
+    dev: true
+
   /@bcoe/v8-coverage@0.2.3:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
@@ -2828,7 +2833,7 @@ packages:
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
       resolve-from: 5.0.0
-      ts-node: 10.9.1(@types/node@20.1.3)(typescript@5.0.4)
+      ts-node: 10.9.1(@types/node@14.18.33)(typescript@5.0.4)
       typescript: 5.0.4
     transitivePeerDependencies:
       - '@swc/core'
@@ -4377,7 +4382,7 @@ packages:
     resolution: {integrity: sha512-8KG5RD0GVP4ydEzRn/I4BNDuxDtqVbOdm8675T49OIG/NGhaK0pjPX7ZcDlvKYbA+ulvVK3ztfcF4uBdOxuJbQ==}
     dependencies:
       '@gar/promisify': 1.1.3
-      semver: 7.3.8
+      semver: 7.5.0
     dev: true
 
   /@npmcli/move-file@1.1.2:
@@ -4701,7 +4706,7 @@ packages:
       svelte: 3.59.1
       tiny-glob: 0.2.9
       undici: 5.22.0
-      vite: 4.3.5(@types/node@20.1.3)
+      vite: 4.3.5(@types/node@14.18.33)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4735,7 +4740,7 @@ packages:
       magic-string: 0.30.0
       svelte: 3.59.1
       svelte-hmr: 0.15.1(svelte@3.59.1)
-      vite: 4.3.5(@types/node@20.1.3)
+      vite: 4.3.5(@types/node@14.18.33)
       vitefu: 0.2.4(vite@4.3.5)
     transitivePeerDependencies:
       - supports-color
@@ -5431,7 +5436,7 @@ packages:
       outdent: 0.8.0
     dev: true
 
-  /@vanilla-extract/integration@6.2.1(@types/node@20.1.3):
+  /@vanilla-extract/integration@6.2.1(@types/node@14.18.33):
     resolution: {integrity: sha512-+xYJz07G7TFAMZGrOqArOsURG+xcYvqctujEkANjw2McCBvGEK505RxQqOuNiA9Mi9hgGdNp2JedSa94f3eoLg==}
     dependencies:
       '@babel/core': 7.21.8
@@ -5445,8 +5450,8 @@ packages:
       lodash: 4.17.21
       mlly: 1.2.1
       outdent: 0.8.0
-      vite: 4.3.5(@types/node@20.1.3)
-      vite-node: 0.28.5(@types/node@20.1.3)
+      vite: 4.3.5(@types/node@14.18.33)
+      vite-node: 0.28.5(@types/node@14.18.33)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -5590,10 +5595,10 @@ packages:
       - supports-color
     dev: true
 
-  /@vercel/remix-builder@1.8.8(@types/node@20.1.3)(ts-node@10.9.1):
+  /@vercel/remix-builder@1.8.8(@types/node@14.18.33)(ts-node@10.9.1):
     resolution: {integrity: sha512-pXZ19gYVdrlLuxRlhrC5v1uYn53YdSLXSzbDlYgbWanE2dbMSRLIjhzq+GIow9TislkhZwJYEgaScho9dMQPDQ==}
     dependencies:
-      '@remix-run/dev': /@vercel/remix-run-dev@1.16.0-patch.1(@types/node@20.1.3)(ts-node@10.9.1)
+      '@remix-run/dev': /@vercel/remix-run-dev@1.16.0-patch.1(@types/node@14.18.33)(ts-node@10.9.1)
       '@vercel/build-utils': 6.7.2
       '@vercel/nft': 0.22.5
       '@vercel/static-config': 2.0.17
@@ -5616,7 +5621,7 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@vercel/remix-run-dev@1.16.0-patch.1(@types/node@20.1.3)(ts-node@10.9.1):
+  /@vercel/remix-run-dev@1.16.0-patch.1(@types/node@14.18.33)(ts-node@10.9.1):
     resolution: {integrity: sha512-W4ugL5WYJEye91kRsBnH2D3Ia+4nTN9IcCH72ykOr660svw9Xise0Zi5sPtV8FP2RncAVgs2wAyAblQzsm6IqQ==}
     engines: {node: '>=14'}
     hasBin: true
@@ -5637,7 +5642,7 @@ packages:
       '@babel/types': 7.21.5
       '@npmcli/package-json': 2.0.0
       '@remix-run/server-runtime': 1.16.0
-      '@vanilla-extract/integration': 6.2.1(@types/node@20.1.3)
+      '@vanilla-extract/integration': 6.2.1(@types/node@14.18.33)
       arg: 5.0.2
       cacache: 15.3.0
       chalk: 4.1.2
@@ -5672,7 +5677,7 @@ packages:
       recast: 0.21.5
       remark-frontmatter: 4.0.1
       remark-mdx-frontmatter: 1.1.1
-      semver: 7.3.8
+      semver: 7.5.0
       sort-package-json: 1.57.0
       tar-fs: 2.1.1
       tsconfig-paths: 4.2.0
@@ -6093,7 +6098,17 @@ packages:
       '@aws-cdk/asset-awscli-v1': 2.2.170
       '@aws-cdk/asset-kubectl-v20': 2.1.1
       '@aws-cdk/asset-node-proxy-agent-v5': 2.0.143
+      '@balena/dockerignore': 1.0.2
+      case: 1.6.3
       constructs: 10.2.20
+      fs-extra: 11.1.1
+      ignore: 5.2.4
+      jsonschema: 1.4.1
+      minimatch: 3.1.2
+      punycode: 2.3.0
+      semver: 7.5.0
+      table: 6.8.1
+      yaml: 1.10.2
     dev: true
     bundledDependencies:
       - '@balena/dockerignore'
@@ -6579,6 +6594,11 @@ packages:
       upper-case-first: 2.0.2
     dev: true
 
+  /case@1.6.3:
+    resolution: {integrity: sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==}
+    engines: {node: '>= 0.8.0'}
+    dev: true
+
   /cdk-pipelines-github@0.4.55(aws-cdk-lib@2.79.1)(constructs@10.2.20):
     resolution: {integrity: sha512-8pibqYyGUWW2RbRwb15dmOga5kkBZfXx6mWZri3s0/P/uz7pK9RC3XZ8C5IC8LdVvGIJT3M+fdZgGYpBCBVR0A==}
     engines: {node: '>= 14.18.0'}
@@ -6588,6 +6608,9 @@ packages:
     dependencies:
       aws-cdk-lib: 2.79.1(constructs@10.2.20)
       constructs: 10.2.20
+      decamelize: 5.0.1
+      fast-json-patch: 3.1.1
+      yaml: 2.2.2
     dev: true
     bundledDependencies:
       - decamelize
@@ -7000,7 +7023,7 @@ packages:
     dependencies:
       '@types/node': 20.1.3
       cosmiconfig: 8.1.3
-      ts-node: 10.9.1(@types/node@20.1.3)(typescript@5.0.4)
+      ts-node: 10.9.1(@types/node@14.18.33)(typescript@5.0.4)
       typescript: 5.0.4
     dev: true
 
@@ -8483,6 +8506,10 @@ packages:
       merge2: 1.4.1
       micromatch: 4.0.5
 
+  /fast-json-patch@3.1.1:
+    resolution: {integrity: sha512-vf6IHUX2SBcA+5/+4883dsIjpBTqmfBjmYiWK1savxQmFk4JfBMLa7ynTYOs1Rolp/T1betJxHiGD3g1Mn8lUQ==}
+    dev: true
+
   /fast-json-stable-stringify@2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
 
@@ -8961,7 +8988,7 @@ packages:
       '@types/glob': 7.2.0
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.2.11
+      fast-glob: 3.2.12
       glob: 7.2.3
       ignore: 5.2.4
       merge2: 1.4.1
@@ -9223,7 +9250,7 @@ packages:
       lru-cache: 7.18.3
     dev: false
 
-  /houdini-svelte@1.2.3(@types/node@20.1.3):
+  /houdini-svelte@1.2.3(@types/node@14.18.33):
     resolution: {integrity: sha512-L5gIUA4hk/kPVYMrYx4/UTtmC24QmsjhLfKa7id4JhGs3MyQGKvgfDfM9VgbxXnSxBW+P1E1t0AQvqZQ0Vbjbg==}
     dependencies:
       '@kitql/helper': 0.5.0
@@ -9235,7 +9262,7 @@ packages:
       recast: 0.23.1
       rollup: 3.21.2
       svelte: 3.59.1
-      vite: 4.3.5(@types/node@20.1.3)
+      vite: 4.3.5(@types/node@14.18.33)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -10527,6 +10554,10 @@ packages:
     engines: {'0': node >= 0.2.0}
     dev: true
 
+  /jsonschema@1.4.1:
+    resolution: {integrity: sha512-S6cATIPVv1z0IlxdN+zUk5EPjkGCdnhN4wVSBlvoUO1tOLJootbo9CquNJmbIh4yikWHiUedhRYrNPn1arpEmQ==}
+    dev: true
+
   /keyv@4.5.2:
     resolution: {integrity: sha512-5MHbFaKn8cNSmVW7BYnijeAVlE4cYA/SVkifVgrh7yotnfhKmjuXpDKjrABLnT0SfHWV21P8ow07OGfRrNDg8g==}
     dependencies:
@@ -10704,6 +10735,10 @@ packages:
 
   /lodash.startcase@4.4.0:
     resolution: {integrity: sha512-+WKqsK294HMSc2jEbNgpHpd0JfIBhp7rEV4aqXWqFr6AlXov+SlcgB1Fv01y2kGe3Gc8nMW7VA0SrGuSkRfIEg==}
+    dev: true
+
+  /lodash.truncate@4.4.2:
+    resolution: {integrity: sha512-jttmRe7bRse52OsWIMDLaXxWqRAmtIUccAQ3garviCqJjafXOfNMO0yMfNpdD6zbGaTU0P5Nz7e7gAT6cKmJRw==}
     dev: true
 
   /lodash.uniq@4.5.0:
@@ -12302,7 +12337,7 @@ packages:
     dependencies:
       lilconfig: 2.1.0
       postcss: 8.4.23
-      ts-node: 10.9.1(@types/node@20.1.3)(typescript@5.0.4)
+      ts-node: 10.9.1(@types/node@14.18.33)(typescript@5.0.4)
       yaml: 2.2.2
     dev: true
 
@@ -13853,6 +13888,17 @@ packages:
       tslib: 2.5.0
     dev: false
 
+  /table@6.8.1:
+    resolution: {integrity: sha512-Y4X9zqrCftUhMeH2EptSSERdVKt/nEdijTOacGD/97EKjhQ/Qs8RTlEGABSJNNN8lac9kheH+af7yAkEWlgneA==}
+    engines: {node: '>=10.0.0'}
+    dependencies:
+      ajv: 8.12.0
+      lodash.truncate: 4.4.2
+      slice-ansi: 4.0.0
+      string-width: 4.2.3
+      strip-ansi: 6.0.1
+    dev: true
+
   /tailwindcss@3.3.2(ts-node@10.9.1):
     resolution: {integrity: sha512-9jPkMiIBXvPc2KywkraqsUfbfj+dHDb+JPWtSJa9MLFdrPyazI7q6WX2sUrm7R9eVR7qqv3Pas7EvQFzxKnI6w==}
     engines: {node: '>=14.0.0'}
@@ -14638,7 +14684,7 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /vercel@29.3.0(@types/node@20.1.3)(ts-node@10.9.1):
+  /vercel@29.3.0(@types/node@14.18.33)(ts-node@10.9.1):
     resolution: {integrity: sha512-6YKCh+okPVcAOqNq9V3mK1j8kdVgNm4F7PTweVrtupEAX1F1V0cntcbtGbLAdGaONTA6PHxmeik9LnplInSW0Q==}
     engines: {node: '>= 14'}
     hasBin: true
@@ -14651,7 +14697,7 @@ packages:
       '@vercel/node': 2.14.2
       '@vercel/python': 3.1.60
       '@vercel/redwood': 1.1.15
-      '@vercel/remix-builder': 1.8.8(@types/node@20.1.3)(ts-node@10.9.1)
+      '@vercel/remix-builder': 1.8.8(@types/node@14.18.33)(ts-node@10.9.1)
       '@vercel/ruby': 1.3.76
       '@vercel/static-build': 1.3.30
     transitivePeerDependencies:
@@ -14695,7 +14741,7 @@ packages:
       vfile-message: 3.1.4
     dev: true
 
-  /vite-node@0.28.5(@types/node@20.1.3):
+  /vite-node@0.28.5(@types/node@14.18.33):
     resolution: {integrity: sha512-LmXb9saMGlrMZbXTvOveJKwMTBTNUH66c8rJnQ0ZPNX+myPEol64+szRzXtV5ORb0Hb/91yq+/D3oERoyAt6LA==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -14707,7 +14753,7 @@ packages:
       picocolors: 1.0.0
       source-map: 0.6.1
       source-map-support: 0.5.21
-      vite: 4.3.5(@types/node@20.1.3)
+      vite: 4.3.5(@types/node@14.18.33)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -14728,7 +14774,7 @@ packages:
       axios: 1.4.0(debug@4.3.4)
       debug: 4.3.4
       picocolors: 1.0.0
-      vite: 4.3.5(@types/node@20.1.3)
+      vite: 4.3.5(@types/node@14.18.33)
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -14774,39 +14820,6 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vite@4.3.5(@types/node@20.1.3):
-    resolution: {integrity: sha512-0gEnL9wiRFxgz40o/i/eTBwm+NEbpUeTWhzKrZDSdKm6nplj+z4lKz8ANDgildxHm47Vg8EUia0aicKbawUVVA==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': '>= 14'
-      less: '*'
-      sass: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      less:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-    dependencies:
-      '@types/node': 20.1.3
-      esbuild: 0.17.18
-      postcss: 8.4.23
-      rollup: 3.21.5
-    optionalDependencies:
-      fsevents: 2.3.2
-    dev: true
-
   /vitefu@0.2.4(vite@4.3.5):
     resolution: {integrity: sha512-fanAXjSaf9xXtOOeno8wZXIhgia+CZury481LsDaV++lSvcU2R9Ch2bPh3PYFyoHW+w9LqAeYRISVQjUIew14g==}
     peerDependencies:
@@ -14815,7 +14828,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.3.5(@types/node@20.1.3)
+      vite: 4.3.5(@types/node@14.18.33)
     dev: true
 
   /vm2@3.9.17:
