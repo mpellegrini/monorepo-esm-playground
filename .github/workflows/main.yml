@@ -5,6 +5,10 @@ on:
   pull_request:
     types: [opened, synchronize]
 
+env:
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+
 jobs:
   build_lint_and_test:
     name: Build, lint, and test
