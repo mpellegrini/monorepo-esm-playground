@@ -25,8 +25,8 @@ const dbParams: IConnectionParameters = {
   database: 'hglegacy',
   user: 'hguser',
   password: 'gzwN1R7sPmiO',
-  statement_timeout: 3000,
-  connectionTimeoutMillis: 3000,
+  statement_timeout: 5000,
+  connectionTimeoutMillis: 5000,
   max: 1,
   application_name: process.env['POSTGRES_APP_NAME'] ?? '',
 }

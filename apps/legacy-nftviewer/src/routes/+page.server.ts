@@ -1,9 +1,9 @@
 import type { PageServerLoad } from './$types'
 
-import { getCollectibles } from '$lib/database'
+import { getSites } from '$lib/database'
 
 export const load = (() => {
   return {
-    collectibles: getCollectibles(),
+    sites: getSites(),
   }
 }) satisfies PageServerLoad
