@@ -15,12 +15,12 @@
   {#each collectibles as collectible}
     <div class="my-1 w-full px-1 md:w-1/2 lg:my-4 lg:w-1/3 lg:px-4">
       <article class="overflow-hidden rounded-lg shadow-lg">
-        <a href="#">
+        <a href="#top">
           <img class="block h-auto w-full" src="{collectible.asset}" alt="" />
         </a>
         <header class="flex items-start justify-between p-2 leading-tight md:p-4">
           <h1 class="line-clamp-1 text-lg">
-            <a class="text-black no-underline hover:underline" href="#">
+            <a class="text-black no-underline hover:underline" href="#top">
               {collectible.title}
             </a>
           </h1>
@@ -28,7 +28,7 @@
         </header>
 
         <footer class="flex items-center justify-between p-2 leading-none md:p-4">
-          <a class="flex items-center text-black no-underline hover:underline" href="#">
+          <a class="flex items-center text-black no-underline hover:underline" href="#top">
             <img
               alt="Placeholder"
               class="block rounded-full"
