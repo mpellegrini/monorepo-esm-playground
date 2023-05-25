@@ -1,5 +1,14 @@
-import pgPromise, { type IDatabase, type IInitOptions } from 'pg-promise'
+import {
+  POSTGRES_HOST,
+  POSTGRES_PORT,
+  POSTGRES_DATABASE,
+  POSTGRES_USER,
+  POSTGRES_PASSWORD,
+  POSTGRES_APP_NAME,
+} from '$env/static/private'
+
 import type { IConnectionParameters } from 'pg-promise/typescript/pg-subset.js'
+import pgPromise, { type IDatabase, type IInitOptions } from 'pg-promise'
 
 const initOptions: IInitOptions = {
   capSQL: true,
@@ -19,15 +28,15 @@ const initOptions: IInitOptions = {
 const pgp = pgPromise(initOptions)
 
 const dbParams: IConnectionParameters = {
-  host: '',
-  port: 5432,
+  host: POSTGRES_HOST,
+  port: Number(POSTGRES_PORT),
   ssl: true,
-  database: '',
-  user: '',
-  password: '',
+  database: POSTGRES_DATABASE,
+  user: POSTGRES_USER,
+  password: POSTGRES_PASSWORD,
   statement_timeout: 5000,
   connectionTimeoutMillis: 5000,
-  max: 1,
-  application_name: process.env['POSTGRES_APP_NAME'] ?? '',
+  max: 10,
+  application_name: POSTGRES_APP_NAME ?? 'pg-promise',
 }
 export const db: IDatabase<unknown> = pgp(dbParams)

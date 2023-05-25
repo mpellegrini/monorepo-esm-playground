@@ -1,8 +1,9 @@
 <script lang="ts">
-  import type { PageServerData } from './$types'
+  import type { Collectible } from '$lib/types'
 
-  export let data: PageServerData
-  const { collectible } = data
+  export let collectibles: Collectible[] = []
+
+  const collectible = collectibles[0]
 </script>
 
 <section class="bg-gray-100 text-gray-900">
@@ -24,9 +25,10 @@
           {collectible.title}
         </h1>
         <div class="mb-4 flex">
-          <span class="flex items-center">{collectible.school} | 1 of 4</span>
+          <span class="flex items-center"
+            >{collectible.school} | {collectible.total_editions} editions</span>
         </div>
-        <p class="leading-relaxed">{collectible.description}</p>
+        <p class="prose">{@html collectible.description}</p>
       </div>
     </div>
   </div>

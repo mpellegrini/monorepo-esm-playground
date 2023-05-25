@@ -1,12 +1,7 @@
 <script lang="ts">
   import '../app.css'
-  import { beforeNavigate } from '$app/navigation'
 
   let scroll: number
-
-  beforeNavigate((nav) => {
-    console.log(JSON.stringify(nav))
-  })
 </script>
 
 <svelte:window bind:scrollY="{scroll}" />
@@ -16,9 +11,6 @@
   <ul class="flex items-center space-x-5">
     <li class="ml-5">
       <a href="/">Home</a>
-    </li>
-    <li>
-      <a href="/collectibles">Collectibles</a>
     </li>
   </ul>
 </nav>

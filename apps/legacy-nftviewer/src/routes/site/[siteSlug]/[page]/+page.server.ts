@@ -6,7 +6,7 @@ export const load = (({ params }) => {
   const page = Number(params.page)
   const siteSlug = params.siteSlug
 
-  const limit = 12
+  const limit = 8
   const offset = (page - 1) * limit
 
   return {
