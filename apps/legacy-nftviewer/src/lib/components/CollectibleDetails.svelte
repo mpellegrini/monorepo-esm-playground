@@ -26,7 +26,7 @@
         </h1>
         <div class="mb-4 flex">
           <span class="flex items-center"
-            >{collectible.school} | {collectible.total_editions} editions</span>
+            >{collectible.school} | {collectible.total_editions} edition{#if collectible.total_editions > 1}s{/if}</span>
         </div>
         <p class="prose">{@html collectible.description}</p>
       </div>
