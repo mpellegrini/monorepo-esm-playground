@@ -18,6 +18,7 @@ const config = {
         strictScalars: true,
         useTypeImports: true,
         scalars: {
+          ID: 'string',
           AWSJSON: 'string',
           AWSDate: 'string',
           AWSTime: 'string',

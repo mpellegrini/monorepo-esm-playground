@@ -18,7 +18,7 @@
     "@toolchain/ts-config": "workspace:*",
     "@types/node": "20.2.5",
     "aws-cdk-lib": "2.81.0",
-    "constructs": "10.2.37"
+    "constructs": "10.2.38"
   },
   "dependencies": {
     "@packages/dbclient-pg": "workspace:*",
