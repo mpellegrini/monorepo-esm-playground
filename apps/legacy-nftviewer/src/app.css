@@ -1,7 +1,0 @@
-@config "../tailwind.config.ts"
-
-@import '@fontsource/inter/variable.css';
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
