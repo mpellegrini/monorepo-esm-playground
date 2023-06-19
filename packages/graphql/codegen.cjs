@@ -1,5 +1,3 @@
-// @ts-check
-
 /** @type {import("@graphql-codegen/cli").CodegenConfig} */
 const config = {
   overwrite: true,
