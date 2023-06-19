@@ -13,7 +13,7 @@
   "scripts": {
     "build": "pnpm codegen && tsc && pnpm merge-schema",
     "codegen": "graphql-codegen-esm --config codegen.cjs",
-    "merge-schema": "ts-node --esm merge-schemas.ts",
+    "merge-schema": "node merge-schemas.js",
     "clean": "del .turbo lib .coverage"
   },
   "devDependencies": {
