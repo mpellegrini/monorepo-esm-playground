@@ -1,13 +1,9 @@
 import { loadFilesSync } from '@graphql-tools/load-files'
-import { join, dirname } from 'path'
 import { mergeTypeDefs } from '@graphql-tools/merge'
 import { print } from 'graphql'
-import { existsSync, writeFileSync, mkdirSync } from 'fs'
-import { fileURLToPath } from 'url'
+import { existsSync, writeFileSync, mkdirSync } from 'node:fs'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-
-const loadedFiles = loadFilesSync(join(__dirname, 'src/schemas'), {
+const loadedFiles = loadFilesSync(new URL('./src/schemas', import.meta.url).pathname, {
   extensions: ['graphql'],
 })
 
@@ -18,4 +14,4 @@ if (!existsSync('lib')) {
   mkdirSync('lib')
 }
 
-writeFileSync(join(__dirname, 'lib/schema.merged.graphql'), printedTypeDefs)
+writeFileSync(new URL('./lib/schema.merged.graphql', import.meta.url).pathname, printedTypeDefs)
