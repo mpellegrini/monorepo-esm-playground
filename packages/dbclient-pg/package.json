@@ -14,7 +14,7 @@
   "devDependencies": {
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
-    "@types/node": "20.3.1"
+    "@types/node": "20.3.3"
   },
   "dependencies": {
     "pg-promise": "11.5.0"

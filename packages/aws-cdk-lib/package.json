@@ -14,12 +14,12 @@
   "devDependencies": {
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
-    "@types/node": "20.3.1",
-    "aws-cdk-lib": "2.84.0",
+    "@types/node": "20.3.3",
+    "aws-cdk-lib": "2.86.0",
     "change-case": "4.1.2",
-    "constructs": "10.2.54"
+    "constructs": "10.2.68"
   },
   "dependencies": {
-    "@sinclair/typebox": "0.28.15"
+    "@sinclair/typebox": "0.29.3"
   }
 }
