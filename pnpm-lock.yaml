@@ -195,8 +195,8 @@ importers:
         specifier: 2.86.0
         version: 2.86.0(constructs@10.2.68)
       cdk-pipelines-github:
-        specifier: 0.4.101
-        version: 0.4.101(aws-cdk-lib@2.86.0)(constructs@10.2.68)
+        specifier: 0.4.102
+        version: 0.4.102(aws-cdk-lib@2.86.0)(constructs@10.2.68)
       constructs:
         specifier: 10.2.68
         version: 10.2.68
@@ -7023,8 +7023,8 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /cdk-pipelines-github@0.4.101(aws-cdk-lib@2.86.0)(constructs@10.2.68):
-    resolution: {integrity: sha512-t6vMP20K8yjCeoi9SNKrj5kc1riTg+zQDlT+w+PVW5lTFNqiVmnAUvexxSR8JjsND13LywMofUHjeYktIN4Z8g==}
+  /cdk-pipelines-github@0.4.102(aws-cdk-lib@2.86.0)(constructs@10.2.68):
+    resolution: {integrity: sha512-2UoOTEQslaC0gUDlMjg6akZd+2/Nn08Ll69FWb1uBGa1XLBsAUHbMt1O43Z6u/XQ0O4TNZzq4n8J8wM2tZce4A==}
     engines: {node: '>= 16.13.0'}
     peerDependencies:
       aws-cdk-lib: ^2.9.0
