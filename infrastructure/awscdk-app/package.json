@@ -14,10 +14,10 @@
   "devDependencies": {
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
-    "aws-cdk": "2.86.0",
-    "aws-cdk-lib": "2.86.0",
-    "constructs": "10.2.68",
-    "esbuild": "0.18.11"
+    "aws-cdk": "2.117.0",
+    "aws-cdk-lib": "2.117.0",
+    "constructs": "10.3.0",
+    "esbuild": "0.19.11"
   },
   "dependencies": {
     "@infrastructure/cdk-pipeline": "workspace:*",

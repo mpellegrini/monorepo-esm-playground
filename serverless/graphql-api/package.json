@@ -17,9 +17,9 @@
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/jest-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
-    "@types/node": "20.3.3",
-    "aws-cdk-lib": "2.86.0",
-    "constructs": "10.2.68"
+    "@types/node": "20.10.6",
+    "aws-cdk-lib": "2.117.0",
+    "constructs": "10.3.0"
   },
   "dependencies": {
     "@packages/graphql": "workspace:*",

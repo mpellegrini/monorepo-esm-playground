@@ -21,16 +21,16 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "17.6.6",
-    "@commitlint/config-conventional": "17.6.6",
-    "del-cli": "5.0.0",
+    "@commitlint/cli": "18.4.3",
+    "@commitlint/config-conventional": "18.4.3",
+    "del-cli": "5.1.0",
     "husky": "8.0.3",
-    "lint-staged": "13.2.3",
-    "prettier": "2.8.8",
-    "prettier-plugin-svelte": "2.10.1",
-    "prettier-plugin-tailwindcss": "0.3.0",
-    "turbo": "1.10.7",
-    "typescript": "5.1.6",
-    "vercel": "31.0.1"
+    "lint-staged": "15.2.0",
+    "prettier": "3.1.1",
+    "prettier-plugin-svelte": "3.1.2",
+    "prettier-plugin-tailwindcss": "0.5.10",
+    "turbo": "1.11.2",
+    "typescript": "5.3.3",
+    "vercel": "33.0.1"
   }
 }

@@ -9,6 +9,7 @@ import {
   SchemaFile,
   UserPoolDefaultAction,
 } from 'aws-cdk-lib/aws-appsync'
+import type { ICertificate } from 'aws-cdk-lib/aws-certificatemanager'
 import type { IUserPool } from 'aws-cdk-lib/aws-cognito'
 import { Architecture, LayerVersion, Runtime, Tracing } from 'aws-cdk-lib/aws-lambda'
 import {
@@ -62,6 +63,10 @@ export class AppSyncStack extends BaseStack {
         path.join(__dirname, '../../node_modules/@packages/graphql/lib/schema.merged.graphql'),
       ),
       name: graphqlApiName,
+      domainName: {
+        domainName: '',
+        certificate: {} as ICertificate,
+      },
       xrayEnabled: true,
       logConfig: {
         excludeVerboseContent: false,
