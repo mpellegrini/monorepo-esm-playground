@@ -7,7 +7,7 @@ import Stripe from 'stripe'
 import { STRIPE_CHECKOUT_KEY } from '$env/static/private'
 
 const stripe = new Stripe(STRIPE_CHECKOUT_KEY, {
-  apiVersion: '2022-11-15',
+  apiVersion: '2023-10-16',
 })
 
 export const actions = {
