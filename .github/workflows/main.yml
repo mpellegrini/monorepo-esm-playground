@@ -12,20 +12,19 @@ env:
 jobs:
   build_lint_and_test:
     name: Build, lint, and test
-    runs-on:
-      group: ubuntu-larger-runners
+    runs-on: ubuntu-latest
     permissions:
       contents: 'read'
       actions: 'read'
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Derive appropriate SHAs for base and head for `turbo xxx --filter` commands
-        uses: nrwl/nx-set-shas@v3
+        uses: nrwl/nx-set-shas@v4
 
       - run: |
           echo "BASE: ${{ env.NX_BASE }}"
@@ -35,7 +34,7 @@ jobs:
         uses: pnpm/action-setup@v2
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: 'pnpm'
@@ -72,13 +71,13 @@ jobs:
       group: ${{ format('{0}-{1}', github.workflow, github.job) }}
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: 'pnpm'
