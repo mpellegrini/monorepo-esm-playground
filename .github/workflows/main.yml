@@ -25,7 +25,7 @@ jobs:
           fetch-depth: 0
 
       - name: Derive appropriate SHAs for base and head for `turbo xxx --filter` commands
-        uses: nrwl/nx-set-shas@v3
+        uses: nrwl/nx-set-shas@v4
 
       - run: |
           echo "BASE: ${{ env.NX_BASE }}"
